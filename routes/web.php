@@ -14,5 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('CaAs.LoginCaAs');
+});
+Route::get('/CaAs', function () {
+    return view('CaAs.HomePageCaAs');
+});
+Route::get('/Profile', function () {
+    return view('CaAs.ProfileCaAs');
+});
+Route::get('/ChangePassword', function () {
+    return view('CaAs.ChangePassword');
+});
+Route::get('/Announcement', function () {
+    return view('CaAs.Announcement');
+});
+Route::get('/Assistants', function () {
+    return view('CaAs.AssistantsPage');
+});
+Route::get('/LoginAdmin', function () {
+    return view('Admin.LoginAdmin');
 });
