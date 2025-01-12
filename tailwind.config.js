@@ -39,6 +39,8 @@ export default {
                 'profile': '#270750'
             },
             screens: {
+                'xs': '391px',
+
                 'sm': '576px',
           
                 'md': '960px',
