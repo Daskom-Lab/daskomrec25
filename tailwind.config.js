@@ -15,7 +15,7 @@ export default {
                 'Wand': "url('../../public/assets/Wand.cur'), default",
             },
             backgroundImage: {
-                'PlaceHolder': "url('../../public/images/login-placeholder.png')",
+                'PlaceHolder': "url('../../public/assets/login-placeholder.png')",
                 'Button': "url('../../public/assets/Button Pink.png')",
                 'LoginAdmin': "url('../../public/assets/Background 1.png')",
                 'LoginCaAs': "url('../../public/assets/Background 2.png')",
