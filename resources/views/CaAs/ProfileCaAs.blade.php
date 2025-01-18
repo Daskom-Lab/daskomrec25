@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 
-<body class="min-h-screen bg-Profile bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden cursor-Wand">
+<body class="min-h-screen bg-Profile bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden">
 
 
     <!-- Background Image -->

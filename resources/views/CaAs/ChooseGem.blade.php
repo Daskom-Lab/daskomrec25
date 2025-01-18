@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-Gems bg-cover bg-fixed bg-no-repeat min-h-screen max-w-full scroll-x-hide text-white overflow-hidden cursor-Wand">
+<body class="bg-Gems bg-cover bg-fixed bg-no-repeat min-h-screen max-w-full scroll-x-hide text-white overflow-hidden over">
     
     <!-- Background Image -->
     <img src="assets/Wall2.png" alt="Wall" class="fixed left-0 h-full w-auto">
@@ -48,14 +48,14 @@
                 </div>    
             </div>
             <div class="flex justify-center h-[60px] space-x-2">
-                <button class="owl-prev hover:scale-105 hover:brightness-110 active:scale-95 cursor-Wand" type="button">
+                <button class="owl-prev hover:scale-105 hover:brightness-110 active:scale-95" type="button">
                     <img src="assets/Prev.png" alt="Prev" class="h-full">
                 </button>
-                <button class="text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 cursor-Wand" onclick="showGem()">
+                <button class="text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95" onclick="showGem()">
                     <img src="assets/Button Pink.png" alt="Save" class="h-[75%] ">
                     <p class="absolute inset-0 flex items-center justify-center text-xl font-bold">Save</p>
                 </button>
-                <button class="owl-next hover:scale-105 hover:brightness-110 active:scale-95 cursor-Wand" type="button">
+                <button class="owl-next hover:scale-105 hover:brightness-110 active:scale-95" type="button">
                    <img src="assets/Next.png" alt="Next" class="h-full ">
                 </button>
             </div>

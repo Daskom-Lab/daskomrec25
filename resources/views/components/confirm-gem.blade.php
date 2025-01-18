@@ -2,7 +2,7 @@
     <img src="assets/Stone Modal.png" alt="Pop Up" class="absolute w-[600px] min-w-[300px] mx-10 sm:mx-3 pointer-events-none">
     <div class="absolute w-[300px] sm:w-[500px] mx-10 sm:mx-36">
         <span onclick="hideShift()"
-            class="absolute lg:-right-6 -right-6  -top-2 xs:-top-4 lg:-top-8 md:-top-8 sm:-top-8 w-20 h-20 text-white hover:duration-200 cursor-wand">
+            class="absolute lg:-right-6 -right-6  -top-2 xs:-top-4 lg:-top-8 md:-top-8 sm:-top-8 w-20 h-20 text-white hover:duration-200">
             <img src="assets/Close Button.png" alt="Close" class="w-[30px] xs:w-[40px] lg:w-[70px] md:w-[60px] transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-110 active:scale-95 list-none">
         </span>
 

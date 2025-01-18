@@ -27,11 +27,11 @@
 
   <!-- Explore Button -->
   <button  
-    class="w-full max-w-[11rem] bg-Button bg-center bg-no-repeat py-3 rounded-lg text-primary text-base sm:text-xl font-bold font-crimson-text relative transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-125 active:scale-95 cursor-Wand"
+    class="w-full max-w-[11rem] bg-Button bg-center bg-no-repeat py-3 rounded-lg text-primary text-base sm:text-xl font-bold font-crimson-text relative transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-125 active:scale-95 "
   >
-    <a href="/CaAs" class="cursor-Wand">
+    <a href="/CaAs" class="">
       <span
-        class="absolute inset-0 bg-Button bg-center bg-no-repeat rounded-lg filter blur-md opacity-50 cursor-Wand"
+        class="absolute inset-0 bg-Button bg-center bg-no-repeat rounded-lg filter blur-md opacity-50 "
       ></span>
       <span class="relative ">Explore</span>
     </a>

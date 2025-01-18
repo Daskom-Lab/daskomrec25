@@ -6,7 +6,7 @@
     <title>Announcement</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-Announcement bg-cover bg-center bg-fixed bg-no-repeat min-h-screen max-w-full scroll-x-hide text-primary overflow-hidden flex items-center justify-center relative cursor-Wand">
+<body class="bg-Announcement bg-cover bg-center bg-fixed bg-no-repeat min-h-screen max-w-full scroll-x-hide text-primary overflow-hidden flex items-center justify-center relative">
 
     <img src="assets/Shadow Right.png" alt="Shadow" class="fixed right-0 top-0 w-1/2 h-full">
     <img src="assets/Bats.gif" alt="Bats" class="fixed -top-72 -left-72 w-[750px] scale-x-[-1] opacity-60">
@@ -39,7 +39,7 @@
                 </p>
             </div>
             <div class="absolute bottom-28 mr-16">
-                <button class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 list-none cursor-Wand">
+                <button class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 list-none">
                     <img src="assets/Button Pink.png" alt="No" class="w-[150px]">
                     <p class="absolute inset-0 flex items-center justify-center text-lg font-bold">Shift</p>
                 </button>

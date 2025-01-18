@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
 </head>
-<body class="font-im-fell-english min-h-screen bg-ChangePassword bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden cursor-Wand">
+<body class="font-im-fell-english min-h-screen bg-ChangePassword bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden ">
     
     <!-- Background Image -->
     <canvas id="webgl-canvas" class="absolute w-screen h-screen top-0 -z-10"></canvas>

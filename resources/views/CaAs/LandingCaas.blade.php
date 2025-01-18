@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body class="font-im-fell-english flex flex-col cursor-Wand">
+<body class="font-im-fell-english flex flex-col ">
 
     <section class="relative h-screen bg-LandingCaas1 bg-cover bg-center overflow-x-hidden overflow-y-clip">
         <img src="assets/RightUpperRock.png" id="Rock1" alt="Right Upper Rock" class="absolute right-0 top-0 w-[40vw] sm:w-[25vw] h-auto">
@@ -46,7 +46,7 @@
 
                 <img src="assets/Portal.png" alt="Portal" class="bottom-0 size-[28rem] h-auto z-10">
                 <a href="/LoginCaas" class="absolute w-[120px] h-auto bottom-[38%] z-10">
-                    <button class="absolute w-full h-auto py-4 rounded-lg text-primary text-base sm:text-xl font-bold font-crimson-text overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 cursor-Wand">   
+                    <button class="absolute w-full h-auto py-4 rounded-lg text-primary text-base sm:text-xl font-bold font-crimson-text overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 ">   
                         <img src="assets/Button Pink.png" alt="button" class="w-full h-full absolute inset-0 -z-10">
                         <span class="absolute inset-0 flex justify-center items-center text-center">
                             Start
@@ -65,12 +65,13 @@
     </section>
 
     <script>
+        
         let rock1 = document.getElementById('Rock1');
         let rock2 = document.getElementById('Rock2');
         let massage = document.getElementById('massage');
         let BR = document.getElementById('BR-Element');
         let BL = document.getElementById('BL-Element');
-
+        //Parallax Handler
         window.addEventListener('scroll', () =>{
             let value = window.scrollY;
 
@@ -81,18 +82,19 @@
             BL.style.left = value * -1.2 + 'px';
         });
 
-        let scrollInterval = null; // Store the interval ID
-        let isScrolling = false;  // Track the scrolling state
+
+        let scrollInterval = null; 
+        let isScrolling = false;  
 
         // Start or pause scrolling on single click
         document.onclick = () => {
             if (isScrolling) {
-                clearInterval(scrollInterval); // Pause scrolling
+                clearInterval(scrollInterval);
                 isScrolling = false;
             } else {
                 scrollInterval = setInterval(() => {
-                    window.scrollBy(0, 1); // Scroll down by 1 pixel
-                }, 1); // Every 10 milliseconds
+                    window.scrollBy(0, 1); 
+                }, 1); 
                 isScrolling = true;
             }
         };

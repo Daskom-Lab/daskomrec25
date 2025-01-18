@@ -10,7 +10,7 @@
       </style>
 </head>
 <body 
-    class="font-im-fell-english flex flex-col items-center justify-center min-h-screen px-4 sm:px-8 relative overflow-hidden cursor-Wand"
+    class="font-im-fell-english flex flex-col items-center justify-center min-h-screen px-4 sm:px-8 relative overflow-hidden "
 >
     <!-- Background Image -->
     <div 
@@ -44,10 +44,6 @@
     <!-- Login Form Component -->
     <x-login-form-caas></x-login-form-caas>
     <!-- Footer Text -->
-    <div class="mt-10 text-center px-4">
-        <p class="text-sm sm:text-base md:text-lg text-white font-serif text-shadow-sm">
-        Discover your light within
-        </p>
-    </div>
+    <x-footer></x-footer>
 </body>
 </html>

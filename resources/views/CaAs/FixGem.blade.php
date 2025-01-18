@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-Gems bg-cover bg-fixed bg-no-repeat min-h-screen max-w-full scroll-x-hide text-white overflow-hidden cursor-Wand">
+<body class="bg-Gems bg-cover bg-fixed bg-no-repeat min-h-screen max-w-full scroll-x-hide text-white overflow-hidden ">
     
     <!-- Background Image -->
     <img src="assets/Wall2.png" alt="Wall" class="fixed left-0 h-full w-auto">

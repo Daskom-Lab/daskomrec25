@@ -6,7 +6,7 @@
     <title>Choose Shift</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-Shift bg-cover bg-center bg-no-repeat max-w-full min-h-screen overflow-hidden cursor-Wand">
+<body class="bg-Shift bg-cover bg-center bg-no-repeat max-w-full min-h-screen overflow-hidden ">
 
     <div class="absolute flex flex-col items-center justify-center bg-BlackLayer w-full h-full z-30 font-im-fell-english overflow-hidden">
         <div class="inset-0 text-white text-center mt-12">
@@ -44,7 +44,7 @@
                             <td class="border-[1px] border-black">10.00-12.00</td>
                             <td class="border-[1px] border-black">5</td>
                             <td class="border-[1px] border-black">
-                                <button class="bg-AddButton px-1.5 py-1 text-center rounded-lg cursor-Wand" onclick="showShift()">
+                                <button class="bg-AddButton px-1.5 py-1 text-center rounded-lg " onclick="showShift()">
                                     <p class="text-white">Add</p>
                                 </button>
                             </td>

@@ -13,7 +13,7 @@
 </head>
 
 <body
-    class="bg-AssistantsPage bg-cover bg-fixed bg-no-repeat min-h-screen max-w-full scroll-x-hide text-white overflow-hidden cursor-Wand">
+    class="bg-AssistantsPage bg-cover bg-fixed bg-no-repeat min-h-screen max-w-full scroll-x-hide text-white overflow-hidden">
 
     <!-- Background Image -->
     <img src="assets/Wall2.png" alt="Wall" class="fixed left-0 h-full w-auto">
@@ -46,10 +46,10 @@
                     </div>
                 </div>
                 <div class="flex justify-center h-[60px]">
-                    <button class="owl-prev py-1 hover:scale-105 hover:brightness-110 active:scale-95 cursor-Wand" type="button">
+                    <button class="owl-prev py-1 hover:scale-105 hover:brightness-110 active:scale-95" type="button">
                         <img src="assets/Prev.png" alt="Prev" class="h-full">
                     </button>
-                    <button class="owl-next py-1 hover:scale-105 hover:brightness-110 active:scale-95 cursor-Wand" type="button" onclick="moveCardDown()">
+                    <button class="owl-next py-1 hover:scale-105 hover:brightness-110 active:scale-95" type="button" onclick="moveCardDown()">
                         <img src="assets/Next.png" alt="Next" class="h-full ">
                     </button>
                 </div>
@@ -61,34 +61,27 @@
     <x-home-button></x-home-button>
     
     <script>
+        //Card Generator
         document.addEventListener("DOMContentLoaded", () => {
-        // Number of images to display
         const totalImages = 87;
 
-        // Reference to the container
         const carouselContainer = document.getElementById("carouselContainer");
 
-        // Create a document fragment to batch DOM updates
         const fragment = document.createDocumentFragment();
 
-        // Dynamically generate the remaining image cards (starting from the second image)
         for (let i = 2; i <= totalImages; i++) {
-            // Create a card container
             const cardDiv = document.createElement("div");
             cardDiv.className = "relative w-[380px] mx-auto";
 
-            // Create the image element
             const img = document.createElement("img");
             img.src = `assets/profilasisten/Asisten (${i}).svg`;
             img.alt = "Assistant";
             img.className = "w-[200px]";
 
-            // Append the image to the card and card to the fragment
             cardDiv.appendChild(img);
             fragment.appendChild(cardDiv);
         }
 
-        // Append the fragment to the container (all at once)
         carouselContainer.appendChild(fragment);
         });
 

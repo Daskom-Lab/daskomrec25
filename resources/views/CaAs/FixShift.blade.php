@@ -6,7 +6,7 @@
     <title>Shift</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-Shift bg-cover bg-center bg-no-repeat max-w-full scroll-x-hide overflow-hidden cursor-Wand">
+<body class="min-h-screen bg-Shift bg-cover bg-center bg-no-repeat max-w-full scroll-x-hide overflow-hidden ">
 
     <img src="assets/Wall2.png" alt="Wall" class="fixed left-0 h-full w-auto">
     <img src="assets/Wall-Mobile.png" alt="Wall" class="fixed inset-0 w-[200px] sm:hidden">

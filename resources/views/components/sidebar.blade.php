@@ -1,5 +1,5 @@
 <!-- Hamburger Button -->
-<button id="sidebarToggle" type="button" class="fixed top-0 left-0 inline-flex items-center h-fit z-50 hover:scale-105 hover:brightness-150 active:scale-95 cursor-Wand">
+<button id="sidebarToggle" type="button" class="fixed top-0 left-0 inline-flex items-center h-fit z-50 hover:scale-105 hover:brightness-150 active:scale-95">
     <img src="assets/Sidebar.png" class="h-[50px] lg:h-[70px] md:h-[60px] sm:h-[55px]" alt="hamburger">
 </button>
 

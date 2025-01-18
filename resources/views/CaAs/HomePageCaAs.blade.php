@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
 
 </head>
-<body class="font-im-fell-english min-h-screen bg-HomePageCaAs bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden cursor-Wand">
+<body class="font-im-fell-english min-h-screen bg-HomePageCaAs bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden ">
     <canvas id="webgl-canvas" class="absolute w-screen h-screen top-0 -z-40"></canvas>
 
     
