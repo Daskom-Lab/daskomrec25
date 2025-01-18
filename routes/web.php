@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('CaAs.LandingCaas');
+});
+Route::get('/LoginCaas', function () {
     return view('CaAs.LoginCaAs');
 });
 Route::get('/CaAs', function () {
@@ -29,7 +32,26 @@ Route::get('/Announcement', function () {
     return view('CaAs.Announcement');
 });
 Route::get('/Assistants', function () {
-    return view('CaAs.AssistantsPage');
+    return view('CaAs.AssistansPage');
+});
+Route::get('/LoginAdmin', function () {
+    return view('Admin.LoginAdmin');
+});
+Route::get('/LandingCaas', function () {
+    return view('CaAs.LandingCaas');
+});
+
+Route::get('/ChooseShift', function () {
+    return view('CaAs.ChooseShift');
+});
+Route::get('/Shift', function () {
+    return view('CaAs.FixShift');
+});
+Route::get('/ChooseGem', function () {
+    return view('CaAs.ChooseGem');
+});
+Route::get('/Gem', function () {
+    return view('CaAs.FixGem');
 });
 Route::get('/LoginAdmin', function () {
     return view('Admin.LoginAdmin');

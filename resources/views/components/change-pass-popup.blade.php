@@ -7,10 +7,10 @@
 
     <!-- Full-Screen Overlay -->
     <div class="fixed inset-0 flex items-center justify-center text-primary font-crimson-text bg-BlackLayer">
-        <img src="assets/Stone Model.png" alt="Pop Up" class="w-[600px] min-w-[300px] mx-10 sm:mx-36">
-        <div class="absolute mx-[90px] lg:mx-[550px] md:mx-[300px] sm:mx-[180px]">
+        <img src="assets/Stone Modal.png" alt="Pop Up" class="absolute w-[600px] min-w-[300px] mx-10 sm:mx-3">
+        <div class="absolute w-[300px] sm:w-[500px] mx-10 sm:mx-36">
             <span onclick="document.querySelector('details').removeAttribute('open')"
-                class="absolute -right-16 xs:-right-14 lg:-right-6 md:-right-10 sm:-right-14 -top-2 xs:-top-4 lg:-top-8 md:-top-8 sm:-top-8 w-20 h-20 text-white hover:duration-200 cursor-pointer">
+                class="absolute lg:-right-6 -right-6  -top-2 xs:-top-4 lg:-top-8 md:-top-8 sm:-top-8 w-20 h-20 text-white hover:duration-200 cursor-pointer">
                 <img src="assets/Close Button.png" alt="Close" class="w-[30px] xs:w-[40px] lg:w-[70px] md:w-[60px] transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 list-none">
             </span>
 

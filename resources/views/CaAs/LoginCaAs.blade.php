@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+
+      </style>
 </head>
 <body 
     class="font-im-fell-english flex flex-col items-center justify-center min-h-screen px-4 sm:px-8 relative overflow-hidden cursor-Wand"
@@ -16,10 +19,10 @@
     </div>
      <!-- Upper Image -->
      <div class="absolute bottom-0 -z-10">
-        <img src="assets/Lower Shine.png" alt="upper wall" class="w-full h-auto">
+        <img src="assets/Lower Shine.png" alt="upper wall" class="w-full h-auto pulsing">
     </div>
     <div class="absolute top-0 -z-10">
-        <img src="assets/Upper Shine.png" alt="upper wall" class="w-full h-auto ">
+        <img src="assets/Upper Shine.png" alt="upper wall" class="w-full h-auto pulsing">
     </div>
     <!-- Upper Image -->
     <div class="absolute bottom-0 -z-10">

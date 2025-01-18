@@ -1,4 +1,9 @@
-# DLOR 2025  
+<p align="center"><img src="public/assets/Sign DLOR.png" width="350"></p>
+<p align="center" style="font-size:20px;font-weight:600">WELCOME TO DASKOM LABORATORY RECRUITMENT 2025
+</p>
+<br>
+
+## About DLOR 2025  
 _Open Recruitment Platform for Dasar Komputer Laboratory, Telkom University_
 
 Welcome to the **DLOR 2025** repository! This project is dedicated to creating a modern, user-friendly platform for recruiting teaching assistants for the **Dasar Komputer Laboratory** at **Telkom University**.
