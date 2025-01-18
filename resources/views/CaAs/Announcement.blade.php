@@ -39,7 +39,7 @@
                 </p>
             </div>
             <div class="absolute bottom-28 mr-16">
-                <button class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 list-none">
+                <button class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 list-none cursor-Wand">
                     <img src="assets/Button Pink.png" alt="No" class="w-[150px]">
                     <p class="absolute inset-0 flex items-center justify-center text-lg font-bold">Shift</p>
                 </button>
@@ -50,6 +50,7 @@
         </div>
     </div>
     <x-sidebar></x-sidebar>
+    <x-home-button></x-home-button>
     
 </body>
 </html>

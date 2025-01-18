@@ -44,7 +44,7 @@
                             <td class="border-[1px] border-black">10.00-12.00</td>
                             <td class="border-[1px] border-black">5</td>
                             <td class="border-[1px] border-black">
-                                <button class="bg-AddButton px-1.5 py-1 text-center rounded-lg" onclick="showShift()">
+                                <button class="bg-AddButton px-1.5 py-1 text-center rounded-lg cursor-Wand" onclick="showShift()">
                                     <p class="text-white">Add</p>
                                 </button>
                             </td>

@@ -55,6 +55,7 @@
 
 
     <x-sidebar></x-sidebar>
+    <x-home-button></x-home-button>
 
 
 </body>

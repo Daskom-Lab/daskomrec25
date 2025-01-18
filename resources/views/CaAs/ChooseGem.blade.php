@@ -30,7 +30,7 @@
                 <h1 class="text-lg font-crimson-text pb-2">Discover the light within</h1>
                 <h1 class="text-3xl">Pick Your Gem</h1>
             </div>
-            <div class="owl-carousel owl-theme justify-evenly mx-auto my-8">
+            <div class="owl-carousel owl-theme justify-evenly mx-auto my-4">
                 <div class="relative h-[410px] w-[200px] xs:w-[400px] flex justify-center items-center mx-auto">
                     <img src="assets/Gems Card/Gems (1).png" alt="Gem Card" class="max-w-[250px] rounded">
                 </div>  
@@ -47,16 +47,16 @@
                     <img src="assets/Gems Card/Gems (9).png" alt="Gem Card" class="max-w-[250px] rounded">
                 </div>    
             </div>
-            <div class="flex justify-center h-[60px] space-x-2 ">
-                <button class="owl-prev scale-x-[-1]" type="button">
-                    <img src="assets/Direction Button.png" alt="Prev" class="h-full">
+            <div class="flex justify-center h-[60px] space-x-2">
+                <button class="owl-prev hover:scale-105 hover:brightness-110 active:scale-95 cursor-Wand" type="button">
+                    <img src="assets/Prev.png" alt="Prev" class="h-full">
                 </button>
-                <button class="text-primary transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 list-none" onclick="showGem()">
-                    <img src="assets/Button Pink.png" alt="Save" class="h-[75%]">
+                <button class="text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 cursor-Wand" onclick="showGem()">
+                    <img src="assets/Button Pink.png" alt="Save" class="h-[75%] ">
                     <p class="absolute inset-0 flex items-center justify-center text-xl font-bold">Save</p>
                 </button>
-                <button class="owl-next" type="button">
-                   <img src="assets/Direction Button.png" alt="Next" class="h-full">
+                <button class="owl-next hover:scale-105 hover:brightness-110 active:scale-95 cursor-Wand" type="button">
+                   <img src="assets/Next.png" alt="Next" class="h-full ">
                 </button>
             </div>
             <x-confirm-gem></x-confirm-gem>

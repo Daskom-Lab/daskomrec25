@@ -46,7 +46,7 @@
 
                 <img src="assets/Portal.png" alt="Portal" class="bottom-0 size-[28rem] h-auto z-10">
                 <a href="/LoginCaas" class="absolute w-[120px] h-auto bottom-[38%] z-10">
-                    <button class="absolute w-full h-auto py-4 rounded-lg text-primary text-base sm:text-xl font-bold font-crimson-text overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 ">   
+                    <button class="absolute w-full h-auto py-4 rounded-lg text-primary text-base sm:text-xl font-bold font-crimson-text overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 cursor-Wand">   
                         <img src="assets/Button Pink.png" alt="button" class="w-full h-full absolute inset-0 -z-10">
                         <span class="absolute inset-0 flex justify-center items-center text-center">
                             Start

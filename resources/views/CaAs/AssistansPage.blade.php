@@ -40,17 +40,17 @@
                     <h1 class="text-2xl font-crimson-text pb-2">Daskom Laboratory</h1>
                     <h1 class="text-4xl">Assistants 2025</h1>
                 </div>
-                <div class="owl-carousel owl-theme justify-evenly mx-auto my-12" id="carouselContainer">
+                <div class="owl-carousel owl-theme justify-evenly mx-auto my-8" id="carouselContainer">
                     <div class="relative w-[380px] mx-auto -translate-y-14" id="firstCard">
                         <img src="assets/profilasisten/Asisten (1).svg" alt="Assistant" class="w-[200px]">
                     </div>
                 </div>
                 <div class="flex justify-center h-[60px]">
-                    <button class="owl-prev py-1" type="button">
-                        <img src="assets/Direction Button.png" alt="Prev" class="h-full scale-x-[-1]">
+                    <button class="owl-prev py-1 hover:scale-105 hover:brightness-110 active:scale-95 cursor-Wand" type="button">
+                        <img src="assets/Prev.png" alt="Prev" class="h-full">
                     </button>
-                    <button class="owl-next py-1" type="button" onclick="moveCardDown()">
-                        <img src="assets/Direction Button.png" alt="Next" class="h-full">
+                    <button class="owl-next py-1 hover:scale-105 hover:brightness-110 active:scale-95 cursor-Wand" type="button" onclick="moveCardDown()">
+                        <img src="assets/Next.png" alt="Next" class="h-full ">
                     </button>
                 </div>
             </div>

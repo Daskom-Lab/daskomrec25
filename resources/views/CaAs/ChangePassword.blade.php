@@ -48,6 +48,7 @@
         <x-change-pass-form></x-change-pass-form>
     </div>
     <x-sidebar></x-sidebar>
+    <x-home-button></x-home-button>
     
 
 </body>
