@@ -59,7 +59,7 @@ camera.position.set(0, 0, 50);
 camera.lookAt(0, 0, 0);
 
 // Background setup
-const backgroundTexture = new THREE.TextureLoader().load('assets/Background 2.png');
+const backgroundTexture = new THREE.TextureLoader().load('assets/Background 2.webp');
 const backgroundGeometry = new THREE.PlaneGeometry(frustumWidth, frustumHeight);
 const backgroundMaterial = new THREE.MeshStandardMaterial({
     map: backgroundTexture,

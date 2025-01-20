@@ -15,50 +15,50 @@
     
     <!-- Background Image -->
     <div class="fixed inset-0 grid place-items-center -z-50">
-        <img src="assets/Light.png"
+        <img src="assets/Light.webp"
              alt="upper shine light" 
              class="h-full w-auto opacity-80 ">
     </div>
     
-    <img src="assets/Wall2.png" 
+    <img src="assets/Wall2.webp" 
     alt="left wall" 
     class="fixed -z-30 -left-24 h-[55%] sm:h-[90%] w-auto">
 
     <div class="fixed inset-0 grid place-items-center -z-20">
-          <img src="assets/Dust.png" 
+          <img src="assets/Dust.webp" 
           alt="bats" 
           class="h-auto w-full sm:hidden -">
     </div>
     
     
 
-    <img src="assets/Wall2.png" 
+    <img src="assets/Wall2.webp" 
     alt="right wall" 
     class="fixed -z-10 -right-32 h-full w-full sm:w-auto scale-x-[-1] scale-y-[-1]">
     
-    <img src="assets/Crystal 1.png" 
+    <img src="assets/Crystal 1.webp" 
          alt="bottom left crystal" 
          class="fixed bottom-0 z-10 left-0 h-52 sm:h-96 w-auto">
     
-    <img src="assets/Crystal 3.png" 
+    <img src="assets/Crystal 3.webp" 
          alt="top right crystal" 
          class="fixed top-0 z-10 right-0 h-96 w-auto">
     
-    <img src="assets/Bats.png" 
+    <img src="assets/Bats.webp" 
          alt="bats" 
          class="fixed top-0 z-10 left-0 h-52 sm:h-96 w-auto">
     
-    <img src="assets/Shine.png" 
+    <img src="assets/Shine.webp" 
          alt="shine" 
          class="fixed bottom-20 z-10 left-0 h-auto w-[70px] sm:w-auto pulsing">
     
-    <img src="assets/Shine.png" 
+    <img src="assets/Shine.webp" 
          alt="shine" 
          class="fixed bottom-0 z-10 left-24 sm:left-40 h-auto w-[70px] sm:w-auto pulsing">
-    <img src="assets/Star 1.png" 
+    <img src="assets/Star 1.webp" 
          alt="star" 
          class="fixed bottom-0 z-10 right-0  h-auto w-auto pulsing">
-    <img src="assets/Star 2.png" 
+    <img src="assets/Star 2.webp" 
          alt="star" 
          class="fixed bottom-0 z-10 right-0  h-auto w-auto pulsing">
 

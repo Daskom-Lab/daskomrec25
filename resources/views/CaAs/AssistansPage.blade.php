@@ -16,21 +16,21 @@
     class="bg-AssistantsPage bg-cover bg-fixed bg-no-repeat min-h-screen max-w-full scroll-x-hide text-white overflow-hidden">
 
     <!-- Background Image -->
-    <img src="assets/Wall2.png" alt="Wall" class="fixed left-0 h-full w-auto">
-    <img src="assets/Wall-Mobile.png" alt="Wall" class="fixed inset-0 w-[200px] sm:hidden">
-    <img src="assets/Crystal 3.png" alt="Crystal" class="fixed bottom-0 left-0 h-96 w-auto scale-x-[-1] scale-y-[-1]">
-    <img src="assets/Crystal 5.png" alt="Crystal" class="fixed bottom-0 z-10 left-36 h-52 w-auto">
-    <img src="assets/Crystal 2.png" alt="Crystal" class="fixed top-0 z-10 left-0 h-full w-auto">
-    <img src="assets/Shine.png" alt="Shine" class="fixed bottom-24 z-10 left-5 h-auto w-[70px] sm:w-auto">
-    <img src="assets/Shine.png" alt="Shine" class="fixed bottom-10 z-10 left-32  h-auto w-[70px] sm:w-auto">
-    <img src="assets/Wall 3.png" alt="Wall"
+    <img src="assets/Wall2.webp" alt="Wall" class="fixed left-0 h-full w-auto">
+    <img src="assets/Wall-Mobile.webp" alt="Wall" class="fixed inset-0 w-[200px] sm:hidden">
+    <img src="assets/Crystal 3.webp" alt="Crystal" class="fixed bottom-0 left-0 h-96 w-auto scale-x-[-1] scale-y-[-1]">
+    <img src="assets/Crystal 5.webp" alt="Crystal" class="fixed bottom-0 z-10 left-36 h-52 w-auto">
+    <img src="assets/Crystal 2.webp" alt="Crystal" class="fixed top-0 z-10 left-0 h-full w-auto">
+    <img src="assets/Shine.webp" alt="Shine" class="fixed bottom-24 z-10 left-5 h-auto w-[70px] sm:w-auto">
+    <img src="assets/Shine.webp" alt="Shine" class="fixed bottom-10 z-10 left-32  h-auto w-[70px] sm:w-auto">
+    <img src="assets/Wall 3.webp" alt="Wall"
         class="fixed right-0 h-full w-auto opacity-0 lg:opacity-100 md:opacity-100">
     <div class="fixed inset-0 grid place-items-center -z-10">
-        <img src="assets/Light.png" alt="Upper Shine" class="h-full w-auto opacity-40">
+        <img src="assets/Light.webp" alt="Upper Shine" class="h-full w-auto opacity-40">
     </div>
-    <img src="assets/Crystal 5.png" alt="Crystal"
+    <img src="assets/Crystal 5.webp" alt="Crystal"
         class="fixed bottom-0 -right-14 h-60 w-auto opacity-0 lg:opacity-100 md:opacity-100">
-    <img src="assets/Shine.png" alt="Shine"
+    <img src="assets/Shine.webp" alt="Shine"
         class="fixed bottom-10 right-5 w-[200px] opacity-0 lg:opacity-100 md:opacity-100">
 
     <div class="absolute flex items-center justify-center bg-BlackLayer bg-opacity-50 w-full h-full z-20">
@@ -42,15 +42,15 @@
                 </div>
                 <div class="owl-carousel owl-theme justify-evenly mx-auto my-8" id="carouselContainer">
                     <div class="relative w-[380px] mx-auto -translate-y-14" id="firstCard">
-                        <img src="assets/profilasisten/Asisten (1).svg" alt="Assistant" class="w-[200px]">
+                        <img src="assets/profilasisten/Asisten (1).webp" alt="Assistant" class="w-[200px]">
                     </div>
                 </div>
                 <div class="flex justify-center h-[60px]">
                     <button class="owl-prev py-1 hover:scale-105 hover:brightness-110 active:scale-95" type="button">
-                        <img src="assets/Prev.png" alt="Prev" class="h-full">
+                        <img src="assets/Prev.webp" alt="Prev" class="h-full">
                     </button>
                     <button class="owl-next py-1 hover:scale-105 hover:brightness-110 active:scale-95" type="button" onclick="moveCardDown()">
-                        <img src="assets/Next.png" alt="Next" class="h-full ">
+                        <img src="assets/Next.webp" alt="Next" class="h-full ">
                     </button>
                 </div>
             </div>
@@ -74,7 +74,7 @@
             cardDiv.className = "relative w-[380px] mx-auto";
 
             const img = document.createElement("img");
-            img.src = `assets/profilasisten/Asisten (${i}).svg`;
+            img.src = `assets/profilasisten/Asisten (${i}).webp`;
             img.alt = "Assistant";
             img.className = "w-[200px]";
 

@@ -13,26 +13,26 @@
     <!-- Background Image -->
     <canvas id="webgl-canvas" class="absolute w-screen h-screen top-0 -z-10"></canvas>
 
-    <img src="assets/Wall2.png" 
+    <img src="assets/Wall2.webp" 
         alt="left wall" 
         class="fixed left-0 h-full w-auto ">    
-    <img src="assets/Wall-Mobile.png" 
+    <img src="assets/Wall-Mobile.webp" 
         alt="left wall" 
         class="fixed inset-0 h-full w-full sm:hidden  ">
-    <img src="assets/Crystal 3.png" 
+    <img src="assets/Crystal 3.webp" 
         alt="bottom left crystal 1" 
         class="fixed bottom-0 left-0 h-96 w-auto scale-x-[-1] scale-y-[-1]">
-    <img src="assets/Crystal 5.png" 
+    <img src="assets/Crystal 5.webp" 
         alt="bottom left crystal 2" 
         class="fixed bottom-0 z-10 left-36 h-52 w-auto">
-    <img src="assets/Crystal 2.png" 
+    <img src="assets/Crystal 2.webp" 
          alt="bottom left crystal" 
          class="fixed top-0 z-10 left-0 h-full w-auto">
-    <img src="assets/Shine.png" 
+    <img src="assets/Shine.webp" 
         alt="shine" 
         class="fixed bottom-24 z-10 left-5 h-auto w-[70px] sm:w-auto pulsing">
    
-   <img src="assets/Shine.png" 
+   <img src="assets/Shine.webp" 
         alt="shine" 
         class="fixed bottom-10 z-10 left-32  h-auto w-[70px] sm:w-auto pulsing">
 

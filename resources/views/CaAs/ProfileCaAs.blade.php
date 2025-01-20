@@ -15,18 +15,18 @@
 
     <!-- Background Image -->
     <canvas id="webgl-canvas" class="absolute w-screen h-screen top-0 -z-10"></canvas>
-    <img src="assets/Wall2.png" alt="Wall" class="fixed left-0 h-full w-auto">
-    <img src="assets/Wall-Mobile.png" alt="Wall" class="fixed inset-0 h-full w-full sm:hidden">
-    <img src="assets/Crystal 3.png" alt="Crystal" class="fixed bottom-0 left-0 h-96 w-auto scale-x-[-1] scale-y-[-1]">
-    <img src="assets/Crystal 5.png" alt="Crystal" class="fixed bottom-0 z-10 left-36 h-52 w-auto">
-    <img src="assets/Crystal 2.png" alt="Crystal" class="fixed top-0 z-10 left-0 h-full w-auto">
-    <img src="assets/Shine.png" alt="Shine" class="fixed bottom-24 z-10 left-5 h-auto w-[70px] sm:w-auto pulsing">
-    <img src="assets/Shine.png" alt="Shine" class="fixed bottom-10 z-10 left-32  h-auto w-[70px] sm:w-auto pulsing">
-    <img src="assets/Wall 3.png" alt="Wall"
+    <img src="assets/Wall2.webp" alt="Wall" class="fixed left-0 h-full w-auto">
+    <img src="assets/Wall-Mobile.webp" alt="Wall" class="fixed inset-0 h-full w-full sm:hidden">
+    <img src="assets/Crystal 3.webp" alt="Crystal" class="fixed bottom-0 left-0 h-96 w-auto scale-x-[-1] scale-y-[-1]">
+    <img src="assets/Crystal 5.webp" alt="Crystal" class="fixed bottom-0 z-10 left-36 h-52 w-auto">
+    <img src="assets/Crystal 2.webp" alt="Crystal" class="fixed top-0 z-10 left-0 h-full w-auto">
+    <img src="assets/Shine.webp" alt="Shine" class="fixed bottom-24 z-10 left-5 h-auto w-[70px] sm:w-auto pulsing">
+    <img src="assets/Shine.webp" alt="Shine" class="fixed bottom-10 z-10 left-32  h-auto w-[70px] sm:w-auto pulsing">
+    <img src="assets/Wall 3.webp" alt="Wall"
         class="fixed right-0 h-full w-auto opacity-0 lg:opacity-100 md:opacity-100">
-    <img src="assets/Crystal 5.png" alt="Crystal"
+    <img src="assets/Crystal 5.webp" alt="Crystal"
         class="fixed bottom-0 -right-14 h-60 w-auto opacity-0 lg:opacity-100 md:opacity-100">
-    <img src="assets/Shine.png" alt="Shine"
+    <img src="assets/Shine.webp" alt="Shine"
         class="fixed bottom-10 right-5 w-[200px] opacity-0 lg:opacity-100 md:opacity-100 pulsing">
 
     <div class="absolute flex items-center justify-center bg-BlackLayer w-full h-full z-20">
@@ -36,7 +36,7 @@
         </div>
         <div class="relative group mt-14">
             <div class="transition-transform duration-300 group-hover:scale-105">
-                <img src="assets/Profile Card.png" alt="Profile Card" class="w-[450px] relative z-10">
+                <img src="assets/Profile Card.webp" alt="Profile Card" class="w-[450px] relative z-10">
                 <div
                     class="absolute inset-0 bg-white blur-xl opacity-0 transition-opacity duration-300 group-hover:opacity-10">
                 </div>

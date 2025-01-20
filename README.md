@@ -1,4 +1,4 @@
-<p align="center"><img src="public/assets/Sign DLOR.png" width="350"></p>
+<p align="center"><img src="public/assets/Sign DLOR.webp" width="350"></p>
 <p align="center" style="font-size:20px;font-weight:600">WELCOME TO DASKOM LABORATORY RECRUITMENT 2025
 </p>
 <br>

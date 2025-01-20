@@ -19,17 +19,17 @@
     </div>
      <!-- Upper Image -->
      <div class="absolute bottom-0 -z-10">
-        <img src="assets/Lower Shine.png" alt="upper wall" class="w-full h-auto pulsing">
+        <img src="assets/Lower Shine.webp" alt="upper wall" class="w-full h-auto pulsing">
     </div>
     <div class="absolute top-0 -z-10">
-        <img src="assets/Upper Shine.png" alt="upper wall" class="w-full h-auto pulsing">
+        <img src="assets/Upper Shine.webp" alt="upper wall" class="w-full h-auto pulsing">
     </div>
     <!-- Upper Image -->
     <div class="absolute bottom-0 -z-10">
-        <img src="assets/Upper.png" alt="upper wall" class="w-full h-auto">
+        <img src="assets/Upper.webp" alt="upper wall" class="w-full h-auto">
     </div>
     <div class="absolute top-0 -z-10">
-        <img src="assets/Upper.png" alt="upper wall" class="w-full h-auto scale-y-[-1]">
+        <img src="assets/Upper.webp" alt="upper wall" class="w-full h-auto scale-y-[-1]">
     </div>
    
     <!-- Greeting Section -->
