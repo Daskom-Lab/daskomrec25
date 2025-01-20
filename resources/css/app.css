@@ -10,12 +10,80 @@
     .scrollbar-hidden::-webkit-scrollbar {
         display: none;
     }
+
     .scrollbar-hidden {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
     }
+
     details summary::-webkit-details-marker {
         display: none;
-        list-style: none;   
+        list-style: none;
     }
+
+    .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .pulsing {
+        animation: pulsing 3s infinite;
+    }
+
+    @keyframes pulsing {
+        0% {
+            transform: scale(1);
+            opacity: 0.2;
+        }
+
+        50% {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 0.2;
+        }
+    }
+
+    .shine-effect {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.1) 100%);
+        animation: shine 1.5s infinite linear;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    @keyframes shine {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+}
+
+@layer base {
+    * {
+        @apply cursor-Wand;
+    }
+
 }

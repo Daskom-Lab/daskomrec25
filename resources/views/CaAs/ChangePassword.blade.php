@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Password</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
 </head>
-<body class="font-im-fell-english min-h-screen bg-ChangePassword bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden cursor-Wand">
+<body class="font-im-fell-english min-h-screen bg-ChangePassword bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden ">
     
     <!-- Background Image -->
+    <canvas id="webgl-canvas" class="absolute w-screen h-screen top-0 -z-10"></canvas>
+
     <img src="assets/Wall2.png" 
         alt="left wall" 
         class="fixed left-0 h-full w-auto ">    
@@ -26,11 +30,11 @@
          class="fixed top-0 z-10 left-0 h-full w-auto">
     <img src="assets/Shine.png" 
         alt="shine" 
-        class="fixed bottom-24 z-10 left-5 h-auto w-[70px] sm:w-auto">
+        class="fixed bottom-24 z-10 left-5 h-auto w-[70px] sm:w-auto pulsing">
    
    <img src="assets/Shine.png" 
         alt="shine" 
-        class="fixed bottom-10 z-10 left-32  h-auto w-[70px] sm:w-auto">
+        class="fixed bottom-10 z-10 left-32  h-auto w-[70px] sm:w-auto pulsing">
 
     <div class="absolute z-20 h-full w-full bg-black bg-opacity-50 flex flex-col items-center justify-center text-center">
         <header class="mb-10 px-4">
@@ -44,6 +48,7 @@
         <x-change-pass-form></x-change-pass-form>
     </div>
     <x-sidebar></x-sidebar>
+    <x-home-button></x-home-button>
     
 
 </body>

@@ -18,7 +18,7 @@
         New Password
       </label>
       <input
-        type="password"
+        type="text"
         id="password"
         class="w-full p-3 bg-PlaceHolder bg-center rounded-lg shadow-md text-black text-base sm:text-lg"
         placeholder="Enter your new password"

@@ -26,6 +26,14 @@ export default {
                 'StoneModel' : "url('../../public/assets/Stone Model.png')",
                 'BlackLayer' : "url('../../public/assets/Black Layer.png')",
                 'Profile': "url('../../public/assets/Background 2.png')",
+                'LandingCaas1': "url('../../public/assets/BackgroundLanding1.png')",
+                'LandingCaas2': "url('../../public/assets/BackgroundLanding2.png')",
+                'Shift' : "url('../../public/assets/Background 5.png')",
+                'Gems': "url('../../public/assets/Background 2.png')",
+            },
+            backgroundColor: {
+                'Table' : "#D9D9D9",
+                'AddButton' : "#1A2254",
             },
             fontFamily: {
                 'im-fell-english': ['"IM Fell English"', 'serif'],
