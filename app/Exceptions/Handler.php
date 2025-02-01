@@ -1,5 +1,5 @@
 <?php
-
+// app/Exceptions/Handler.php
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

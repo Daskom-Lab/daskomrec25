@@ -28,10 +28,23 @@
             <div class="flex relative justify-center -top-10">
                 <img src="assets/Announcement Stone.webp" alt="" class="h-[700px]">
                 <div class="absolute text-justify mt-32 w-[230px] lg:w-[250px]">
-                    <p class="lg:text-lg text-base font-bold mb-5">Once you choose this shift, you couldn't replace it, your shift will be show below:</p>
-                    <p class="ml-3 lg:text-md text-sm font-im-fell-english">Date: Monday, 18th December 2024</p>
-                    <p class="ml-3 lg:text-md text-sm font-im-fell-english">Time: 10.00-12.00 WIB</p>
-                    <p class="lg:text-lg text-base font-bold mt-5">Please always re-check your shift also our OA Line for next information. Thank you.</p>
+                @if ($shift)
+                    <p class="lg:text-lg text-base font-bold mb-5">Once you choose a shift, it cannot be changed. Your assigned shift will be displayed below.</p>
+
+                    <p class="ml-3 lg:text-md text-sm font-im-fell-english">Date: {{ Carbon\Carbon::parse($shift->date)->format('l, jS F Y') }}</p>
+                    <p class="ml-3 lg:text-md text-sm font-im-fell-english">Time: {{ substr($shift->time_start, 0, 5) . '-' . substr($shift->time_end, 0, 5) . ' WIB' }}</p>
+
+                    <p class="lg:text-lg text-base font-bold mt-5">Please make sure to remember your assigned shift and stay updated via our OA Line for any upcoming information. Thank you!</p>
+                    @else
+                        <p class="lg:text-lg text-base font-bold mb-5">
+                            You haven't picked any shift yet.
+                        </p>
+                        <p>
+                            <a href="{{ route('caas.choose-shift') }}" class="underline">
+                                Click here to choose shift
+                            </a>
+                        </p>
+                    @endif
                 </div>
                 <div class="absolute bottom-[70px] ml-56">
                     <img src="assets/Sign DLOR.webp" alt="Sign" class="w-[120px]">

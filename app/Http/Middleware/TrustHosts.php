@@ -1,4 +1,5 @@
 <?php
+// app/Http/Middleware/TrustHosts.php
 
 namespace App\Http\Middleware;
 

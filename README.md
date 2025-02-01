@@ -1,4 +1,4 @@
-<p align="center"><img src="public/assets/Sign DLOR.webp" width="350"></p>
+<p align="center"><img src="public/assets/logodlor25.webp" width="350"></p>
 <p align="center" style="font-size:20px;font-weight:600">WELCOME TO DASKOM LABORATORY RECRUITMENT 2025
 </p>
 <br>
@@ -17,11 +17,6 @@ DLOR 2025 is a recruitment platform designed to streamline the application proce
 - Real-time updates on application status  
 - Admin dashboard for managing recruitment  
 
-## Tech Stack  
-- **Frontend**: Blade (Laravel templating engine)  
-- **Backend**: PHP (Laravel framework)  
-- **Database**: SQLite
-
 ## Team Members  
 **UI/UX Design:**  
 - [Aulia Rahma](https://github.com/pieceofaul) (AUL)  
@@ -33,49 +28,3 @@ DLOR 2025 is a recruitment platform designed to streamline the application proce
 **Backend Development:**  
 - [Muhammad Zaenal Abidin Abdurrahman](https://github.com/Zendin110206) (ZEN)  
 - [Muhammad Hafiz](https://github.com/mhafiz03) (MHZ)  
-
-## Getting Started  
-Follow these steps to set up the project on your local machine.
-
-### Prerequisites
-
-- **PHP 8.2**
-- **Node.js** (or pnpm or yarn or bun)
-- **Laravel 11**
-- (Optional) **Laragon** (Recommended for Windows users)
-
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Daskom-Lab/daskomrec25
-   cd DLOR2025
-   ```
-
-2. Setup:
-   Install dependecies:
-   ```bash
-   composer install
-   npm install # or pnpm i, yarn, bun
-   ```
-   Copy `.env.example` and paste it as `.env` or just `cp .env.example .env`
-
-   Edit `APP_URL` into `APP_URL=http://localhost:8000` in `.env`
-
-   Setup key option and database:
-   ```bash
-   php artisan key:generate
-   php artisan migrate
-   ```
-
-3. Run the project:
-   Run in two terminals:
-   ```bash
-   npm run dev
-   ```
-   and other is:
-   ```bash
-   php artisan serve
-   ```
-
-4. Edit the project:
-Access the platform at: `http://localhost:8000`

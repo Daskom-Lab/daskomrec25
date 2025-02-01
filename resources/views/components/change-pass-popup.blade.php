@@ -18,12 +18,23 @@
                 <h1 class="lg:text-md md:text-md sm:text-md text-xs font-bold">Discover your light within</h1>
                 <p class="lg:text-4xl md:text-3xl text-lg mt-1 md:mt-3 lg:mt-3 font-im-fell-english">Are you sure you want to change password?</p>
             </div>  
+            <!-- Tombol Yes & No -->
             <div class="mt-4 sm:mt-8 lg:mt-10 md:mt-10 space-x-2">
-                <button class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-125 active:scale-95 list-none ">
+                <!-- YES: Submit Form -->
+                <button 
+                    class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-125 active:scale-95 list-none"
+                    onclick="event.preventDefault(); document.getElementById('changePassForm').submit();"
+                >
                     <img src="assets/Button Pink.webp" alt="Yes" class="w-[80px] xs:w-[100px] lg:w-[180px] md:w-[180px] sm:w-[150px]">
                     <p class="absolute inset-0 flex items-center justify-center text-md lg:text-xl md:text-xl font-bold">Yes</p>
                 </button>
-                <button class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-125 active:scale-95 list-none ">
+
+                <!-- NO: Tutup popup -->
+                <button 
+                    type="button"
+                    class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-125 active:scale-95 list-none"
+                    onclick="document.querySelector('details').removeAttribute('open')"
+                >
                     <img src="assets/Button Pink.webp" alt="No" class="w-[80px] xs:w-[100px] lg:w-[180px] md:w-[180px] sm:w-[150px]">
                     <p class="absolute inset-0 flex items-center justify-center text-md lg:text-xl md:text-xl font-bold">No</p>
                 </button>

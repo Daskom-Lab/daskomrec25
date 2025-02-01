@@ -1,6 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rye&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+
+[x-cloak] {
+    display: none !important;
+}
 
 @tailwind base;
 @tailwind components;
@@ -12,10 +16,8 @@
     }
 
     .scrollbar-hidden {
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
     }
 
     details summary::-webkit-details-marker {
@@ -63,7 +65,12 @@
     }
 
     .shine-effect {
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.1) 100%);
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 0.1) 100%
+        );
         animation: shine 1.5s infinite linear;
         z-index: -1;
         pointer-events: none;
@@ -79,11 +86,41 @@
         }
     }
 
+    .gem-container {
+        /* Pastikan transform-origin kita atur agar scale nyaman (misal tengah, atau bawah tengah) */
+        transform-origin: center center;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        /* Awal scale bisa lebih kecil sedikit supaya ada efek zoom */
+        transform: scale(0.9);
+    }
+
+    .gem-image {
+        z-index: 10; /* Gambar di bawah teks, tetapi masih di depan background */
+    }
+
+    .gem-quota-text {
+        z-index: 20; /* Teks di atas gambar */
+        /* Jika ingin posisinya absolute di dalam container, boleh seperti ini:
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 10px;
+        */
+    }
 }
 
 @layer base {
     * {
         @apply cursor-Wand;
     }
+}
 
+@supports (-webkit-touch-callout: none) {
+    body {
+        background-attachment: scroll !important;
+    }
+    .bg-LoginCaAs {
+        background-attachment: scroll !important;
+    }
 }

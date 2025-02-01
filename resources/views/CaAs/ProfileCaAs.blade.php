@@ -7,11 +7,38 @@
     <title>Profile</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+    <!-- Preload Images -->
+    <link rel="preload" href="assets/Wall2.webp" as="image">
+    <link rel="preload" href="assets/Wall-Mobile.webp" as="image">
+    <link rel="preload" href="assets/Crystal 3.webp" as="image">
+    <link rel="preload" href="assets/Crystal 5.webp" as="image">
+    <link rel="preload" href="assets/Crystal 2.webp" as="image">
+    <link rel="preload" href="assets/Shine.webp" as="image">
+    <link rel="preload" href="assets/Wall 3.webp" as="image">
+    <link rel="preload" href="assets/Crystal 5.webp" as="image">
+    <link rel="preload" href="assets/Shine.webp" as="image">
 </head>
 
 <body class="min-h-screen bg-Profile bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden">
+@php
+    $user = Auth::user();
+    $name = $user->profile->name;
+    $major = $user->profile->major;
+    $class = $user->profile->class;
+    $gender = $user->profile->gender;
+    $nim = $user->nim;
+    $words = explode(' ', $name); // Split the name into words
+    $shortenedName = '';
 
+    foreach ($words as $word) {
+        // Add words if within the 25-character limit
+        if (strlen($shortenedName) + strlen($word) + 1 <= 25) {
+            $shortenedName .= ($shortenedName ? ' ' : '') . $word;
+        } else {
+            $shortenedName .= ' ' . strtoupper($word[0]) . '.'; // Convert exceeding words into initials
+        }
+    }
+@endphp
 
     <!-- Background Image -->
     <canvas id="webgl-canvas" class="absolute w-screen h-screen top-0 -z-10"></canvas>
@@ -36,17 +63,17 @@
         </div>
         <div class="relative group mt-14">
             <div class="transition-transform duration-300 group-hover:scale-105">
-                <img src="assets/Profile Card.webp" alt="Profile Card" class="w-[450px] relative z-10">
+                <img src="assets/Profile Card {{ $gender === 'Female' ? 'Female' : 'Male' }}.webp" alt="Profile Card" class="w-[450px] relative z-10">
                 <div
                     class="absolute inset-0 bg-white blur-xl opacity-0 transition-opacity duration-300 group-hover:opacity-10">
                 </div>
                 <div
                     class="absolute inset-0 flex items-center text-justify z-20 mx-[89px] xs:mx-[100px] sm:mx-[105px] md:mx-[105px] lg:mx-[105px] mt-[173px] sm:mt-[205px] lg:mt-[203px] md:mt-[203px] xs:mt-[196px]">
                     <div class="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[11px] text-profile font-rye">
-                        <p>NAMA: STEVANNIE PRATAMA</p>
-                        <p>NIM: 101012340343</p>
-                        <p>JURUSAN: TEKNIK TELEKOMUNIKASI</p>
-                        <p>KELAS: TT-47-INT</p>
+                        <p>NAMA: {{ $shortenedName }}</p>
+                        <p>NIM: {{ $nim }}</p>
+                        <p>JURUSAN: {{ $major }}</p>
+                        <p>KELAS: {{ $class }}</p>
                     </div>
                 </div>
             </div>

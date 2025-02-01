@@ -1,4 +1,5 @@
 <?php
+// app/Http/Middleware/ValidateSignature.php
 
 namespace App\Http\Middleware;
 

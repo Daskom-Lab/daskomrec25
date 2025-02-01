@@ -1,4 +1,5 @@
 <?php
+// app/Http/Middleware/VerifyCsrfToken.php
 
 namespace App\Http\Middleware;
 

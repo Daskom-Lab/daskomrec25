@@ -11,38 +11,59 @@
         <h1 class="text-white text-center text-2xl mb-2 mt-8 font-semibold">Account</h1>
         <ul class="space-y-1 font-medium">
             <li class="h-16 max-w-[232px] mx-auto">
-                <a href="/Profile" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
+                <a href="/profile" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
                     <x-sidebar-button>Profile</x-sidebar-button>
                 </a>
             </li>
             <li class="h-16 max-w-[232px] mx-auto">
-                <a href="/ChangePassword" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
+                <a href="/change-password" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
                     <x-sidebar-button>Change Password</x-sidebar-button>
                 </a>
             </li>
         </ul>
-        <h1 class="text-white text-center text-2xl mt-4 mb-2 font-semibold">Recruitment</h1>
-        <ul class="space-y-1 font-medium">
-            <li class="h-16 max-w-[232px] mx-auto">
-                <a href="/Announcement" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
-                    <x-sidebar-button>Announcement</x-sidebar-button>
-                </a>
-            </li>
-            <li class="h-16 max-w-[232px] mx-auto">
-                <a href="/ChooseShift" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
-                    <x-sidebar-button>Shift</x-sidebar-button>
-                </a>
-            </li>
-            <li class="h-16 max-w-[232px] mx-auto">
-                <a href="/ChooseGem" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
-                    <x-sidebar-button>Gems</x-sidebar-button>
-                </a>
-            </li>
-        </ul>
+            @php
+                use Illuminate\Support\Facades\Auth;
+                $config = App\Models\Configuration::find(1);
+                $user = Auth::user();
+            @endphp
+
+            <!-- Recruitment Section -->
+@if ($config && ($config->pengumuman_on || $config->isi_jadwal_on || $config->role_on))
+<h1 class="text-white text-center text-2xl mt-4 mb-2 font-semibold">Recruitment</h1>
+@endif
+
+<ul class="space-y-1 font-medium">
+{{-- Announcement Link --}}
+@if ($config && $config->pengumuman_on)
+    <li class="h-16 max-w-[232px] mx-auto">
+        <a href="/announcement" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
+            <x-sidebar-button>Announcement</x-sidebar-button>
+        </a>
+    </li>
+@endif
+
+{{-- Choose Shift Link (hide if user FAIL) --}}
+@if ($config && $config->isi_jadwal_on && $user->caasStage && $user->caasStage->status !== 'Fail')
+    <li class="h-16 max-w-[232px] mx-auto">
+        <a href="/choose-shift" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
+            <x-sidebar-button>Shift</x-sidebar-button>
+        </a>
+    </li>
+@endif
+
+{{-- Choose Gems Link (hide if user FAIL) --}}
+@if ($config && $config->role_on && $user->caasStage && $user->caasStage->status !== 'Fail')
+    <li class="h-16 max-w-[232px] mx-auto">
+        <a href="/choose-gem" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
+            <x-sidebar-button>Gems</x-sidebar-button>
+        </a>
+    </li>
+@endif
+</ul>
         <h1 class="text-white text-center text-2xl mt-4 mb-2 font-semibold">Contacts</h1>
         <ul class="space-y-1 font-medium">
             <li class="h-16 max-w-[232px] mx-auto">
-                <a href="/Assistants" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
+                <a href="/assistants" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
                     <x-sidebar-button>Assistant</x-sidebar-button>
                 </a>
             </li>
@@ -54,15 +75,23 @@
             </li>
         </ul>
         <ul class="h-16 max-w-[232px] mx-auto">
-            <a href="/" class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full">
-                <button
-                    class="w-full h-full py-10 rounded-lg text-primary text-base sm:text-xl font-bold font-crimson-text relative overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+        <form 
+                id="logout-form" 
+                action="{{ route('caas.logout') }}" 
+                method="POST" 
+                class="flex items-center justify-center p-2 text-gray-200 rounded-lg h-full"
+            >
+                @csrf <!-- CSRF token for security -->
+                <button 
+                    type="submit" 
+                    class="w-full h-full py-10 rounded-lg text-primary text-base sm:text-xl font-bold font-crimson-text relative overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+                >   
                     <img src="assets/Button Ungu.webp" alt="button" class="w-full h-full absolute inset-0 -z-10">
                     <span class="absolute inset-0 flex justify-center items-center text-center">
                         Log Out
                     </span>
                 </button>
-            </a>
+            </form>
         </ul>
     </div>
 </aside>
@@ -87,4 +116,3 @@
         }
     });
 </script>
-i

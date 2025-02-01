@@ -1,4 +1,5 @@
 <?php
+// app/Models/User.php
 
 namespace App\Models;
 
@@ -18,9 +19,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'nim',
         'password',
+        'is_admin',
+        'last_activity',
+        'last_seen_announcement'
     ];
 
     /**
@@ -31,6 +34,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'is_admin',
     ];
 
     /**
@@ -39,7 +43,27 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    public function caas()
+    {
+        return $this->hasOne(Caas::class);
+    }
+
+    public function caasStage()
+    {
+        return $this->hasOne(CaasStage::class);
+    }
+
+    public function plottingans()
+    {
+        return $this->hasMany(Plottingan::class);
+    }
 }
+

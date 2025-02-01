@@ -1,3 +1,6 @@
+<!-- database/migrations/2019_08_19_000000_create_failed_jobs_table.php -->
+
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;

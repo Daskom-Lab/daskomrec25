@@ -1,4 +1,5 @@
 <?php
+// app/Http/Middleware/EncryptCookies.php
 
 namespace App\Http\Middleware;
 

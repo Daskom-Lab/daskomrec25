@@ -1,4 +1,5 @@
 <?php
+// app/Http/Middleware/TrimStrings.php
 
 namespace App\Http\Middleware;
 

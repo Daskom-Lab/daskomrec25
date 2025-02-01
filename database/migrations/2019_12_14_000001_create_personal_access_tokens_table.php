@@ -1,3 +1,5 @@
+<!-- database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php -->
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;

@@ -1,4 +1,5 @@
 <?php
+// app/Http/Contollers/Controller.php
 
 namespace App\Http\Controllers;
 

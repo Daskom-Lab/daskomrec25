@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>Log In</title>
+    <link rel="preload" href="{{ asset('assets/Lower Shine.webp') }}" as="image">
+    <link rel="preload" href="{{ asset('assets/Upper Shine.webp') }}" as="image">
+    <link rel="preload" href="{{ asset('assets/Upper.webp') }}" as="image">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-
-      </style>
 </head>
 <body 
     class="font-im-fell-english flex flex-col items-center justify-center min-h-screen px-4 sm:px-8 relative overflow-hidden "
 >
     <!-- Background Image -->
-    <div 
+    <div
         class="absolute inset-0 bg-LoginCaAs bg-cover bg-center bg-no-repeat -z-10"
         >
     </div>

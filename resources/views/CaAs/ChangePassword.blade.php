@@ -6,7 +6,6 @@
     <title>Change Password</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body class="font-im-fell-english min-h-screen bg-ChangePassword bg-cover bg-center bg-no-repeat max-w-full overflow-x-hidden ">
     
@@ -45,6 +44,25 @@
                 Please enter the Old Password & New Password for minimum 8 characters
             </p>
         </header>
+
+<!-- Notifikasi Sukses & Error (jika ada) -->
+<div class="w-full max-w-lg px-4 mb-4">
+    @if(session('success'))
+        <div class="bg-green-100 text-green-700 rounded-md p-3 mb-4 text-sm">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if($errors->any())
+        <div class="bg-red-100 text-red-700 rounded-md p-3 mb-4 text-sm">
+            <ul class="list-disc pl-5">
+                @foreach($errors->all() as $err)
+                    <li>{{ $err }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</div>
+
         <x-change-pass-form></x-change-pass-form>
     </div>
     <x-sidebar></x-sidebar>

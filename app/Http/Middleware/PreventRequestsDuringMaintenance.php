@@ -1,4 +1,5 @@
 <?php
+// app/Http/Middleware/PreventRequestsDuringMaintenance.php
 
 namespace App\Http\Middleware;
 

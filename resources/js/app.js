@@ -1,6 +1,8 @@
 import './bootstrap';
 
-function showShift() {
+function showShift(shiftId) {
+    const hiddenInput = document.getElementById('shift_id_input');
+    hiddenInput.value = shiftId;
     document.getElementById('popupShift').classList.remove('hidden');
 }
 
@@ -71,12 +73,6 @@ const background = new THREE.Mesh(backgroundGeometry, backgroundMaterial);
 background.position.set(0, 0, -5);
 scene.add(background);
 
-
-
-// Ambient light
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
-scene.add(ambientLight);
-
 // Firefly setup
 const fireflyCount = 20;
 const fireflies = [];
@@ -133,20 +129,9 @@ function createRipple(x, y) {
 
     lastMousePosition = { x, y };
 
-    const light = new THREE.PointLight(0xffffff, 5, 5);
-    const lightBg = new THREE.PointLight(0xffffff, 1, 2);
-    light.position.set(x, y, 0.5);
-    lightBg.position.set(x, y, -4.5);
 
-    const ripple = {
-        light,
-        age: 0,
-        maxAge: 4,
-        force,
-        vx,
-        vy,
-        initialIntensity: 0.5
-    };
+    const lightBg = new THREE.PointLight(0xffffff, 1, 2);
+    lightBg.position.set(x, y, -4.5);
 
     const rippleBg = {
         light: lightBg,
@@ -158,9 +143,7 @@ function createRipple(x, y) {
         initialIntensity: 1
     };
 
-    scene.add(light);
     scene.add(lightBg);
-    ripples.push(ripple);
     ripples.push(rippleBg);
 
     if (ripples.length > maxRipples) {
