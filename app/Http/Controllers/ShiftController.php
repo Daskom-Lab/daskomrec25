@@ -103,15 +103,17 @@ class ShiftController extends Controller
      * RESET SHIFT: hapus semua SHIFT (dan Plottingan jika diperlukan).
      */
     public function resetShifts()
-    {
-        DB::transaction(function() {
-            Shift::truncate();
-            // Jika ingin sekalian reset plottingan
-            // Plottingan::truncate();
-        });
+{
+    DB::transaction(function() {
+        // 1. Hapus semua di plottingans
+        Plottingan::query()->delete();
 
-        return redirect()->back()->with('success', 'All Shifts have been reset!');
-    }
+        // 2. Hapus semua di shifts
+        Shift::query()->delete();
+    });
+
+    return redirect()->back()->with('success', 'All Shifts have been reset!');
+}
 
     /**
      * RESET PLOT: hapus semua data Plottingan.

@@ -173,20 +173,6 @@ function manageCaAs() {
         selectedCaas: null,
 
         // ----------------------
-        // TOAST MESSAGES
-        // ----------------------
-        successMessage: '',
-
-        showSuccessMessage(msg) {
-            this.successMessage = msg;
-            console.log("Toast set:", msg)
-            // Hilangkan toast setelah 3 detik
-            setTimeout(() => {
-                this.successMessage = '';
-            }, 5000);
-        },
-
-        // ----------------------
         // Computed & Getter
         // ----------------------
         get filteredList() {
@@ -282,7 +268,7 @@ function manageCaAs() {
             if (index !== -1) {
                 try {
                     await updateCaas(this.caasList[index].id, { setPass: this.setPassword });
-                    this.showSuccessMessage(`Password for NIM ${this.setNim} updated!`);
+                    // Success message will be set in session on reload
                 } catch (error) {
                     alert(error.message);
                 }
@@ -323,7 +309,7 @@ function manageCaAs() {
                     lastSeenAnnouncement: 0,
                 });
 
-                this.showSuccessMessage('New CaAs created successfully!');
+                // Success message will be set in session on reload
                 this.isAddOpen = false;
                 this.resetAddForm();
             } catch (error) {
@@ -402,7 +388,7 @@ function manageCaAs() {
                         gender: this.selectedCaas.gender,
                     });
                     this.caasList[index] = { ...this.selectedCaas };
-                    this.showSuccessMessage('CaAs updated successfully!');
+                    // Success message will be set in session on reload
                 } catch (error) {
                     alert(error.message);
                 }
@@ -419,13 +405,39 @@ function manageCaAs() {
             try {
                 await deleteCaas(this.selectedCaas.id);
                 this.caasList = this.caasList.filter(c => c.nim !== this.selectedCaas.nim);
-                this.showSuccessMessage(`CaAs with NIM ${this.selectedCaas.nim} deleted!`);
+                // Success message will be set in session on reload
             } catch (error) {
                 alert(error.message);
             }
             this.isDeleteOpen = false;
             this.selectedCaas = null;
         },
+        displayPages() {
+  const pages = [];
+  const total = this.totalPages;
+  const current = this.currentPage;
+  
+  // Jika total page <= 7, tampilkan semua
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) {
+      pages.push(i);
+    }
+  } else {
+    // Jika di awal
+    if (current <= 4) {
+      pages.push(1, 2, 3, 4, 5, '...', total);
+    } 
+    // Jika di akhir
+    else if (current >= total - 3) {
+      pages.push(1, '...', total-4, total-3, total-2, total-1, total);
+    } 
+    // Jika di tengah
+    else {
+      pages.push(1, '...', current-1, current, current+1, '...', total);
+    }
+  }
+  return pages;
+},
     }
 }
 </script>
@@ -436,21 +448,11 @@ function manageCaAs() {
     class="relative w-full max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 py-6"
     x-data="manageCaAs()"
 >
-    <!-- 
-      ====================================
-      TOAST CONTAINER (WAJIB x-cloak & style="display:none;") 
-      ====================================
-    -->
-    <div 
-        class="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-md z-[999]"
-        x-show="successMessage !== ''"
-        x-cloak
-        style="display: none;"
-        x-transition.opacity
-    >
-        <p x-text="successMessage"></p>
+    @if(session('success'))
+    <div class="bg-green-500 text-white px-4 py-2 rounded-md shadow-md mb-4">
+        <p><i class="fas fa-check-circle"></i> {{ session('success') }}</p>
     </div>
-    <!-- END TOAST CONTAINER -->
+    @endif
 
     <!-- Judul Halaman -->
     <h1 class="text-center text-white text-3xl sm:text-4xl md:text-5xl font-im-fell-english mt-4">
@@ -622,14 +624,6 @@ function manageCaAs() {
                         <th class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base md:text-lg">
                             Name
                         </th>
-                        <!-- Email -->
-                        <th class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base md:text-lg">
-                            Email
-                        </th>
-                        <!-- Major -->
-                        <th class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base md:text-lg">
-                            Major
-                        </th>
                         <!-- Class -->
                         <th class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base md:text-lg">
                             Class
@@ -645,17 +639,6 @@ function manageCaAs() {
                         <!-- State -->
                         <th class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base md:text-lg">
                             State
-                        </th>
-                        <th class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base md:text-lg">
-                            Gender
-                        </th>
-                        <!-- Last activity -->
-                        <th class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base md:text-lg">
-                            Last Activity
-                        </th>
-                        <!-- Last seen announcement -->
-                        <th class="py-2 border-r border-black text-biru-tua font-im-fell-english text-xs sm:text-sm md:text-base">
-                            Last Seen Announcement
                         </th>
                         <!-- Action -->
                         <th class="py-3 px-3 text-biru-tua font-im-fell-english text-sm sm:text-base md:text-lg">
@@ -681,16 +664,6 @@ function manageCaAs() {
                                 class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base"
                                 x-text="caas.name"
                             ></td>
-                            <!-- Email -->
-                            <td 
-                                class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base"
-                                x-text="caas.email"
-                            ></td>
-                            <!-- Major -->
-                            <td 
-                                class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base"
-                                x-text="caas.major"
-                            ></td>
                             <!-- Class -->
                             <td 
                                 class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base"
@@ -715,53 +688,6 @@ function manageCaAs() {
                             <td 
                                 class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base"
                                 x-text="caas.state"
-                            ></td>
-                            <td 
-                                class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base"
-                                x-text="caas.gender"
-                            ></td>
-                            <!-- Last activity -->
-                            <td 
-                                class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base"
-                                x-text="(() => {
-                                    let date = new Date(caas.lastActivity * 1000);
-                                    let hours = date.getHours().toString().padStart(2, '0'); // Ensure 2-digit hours
-                                    let minutes = date.getMinutes().toString().padStart(2, '0'); // Ensure 2-digit minutes
-                                    let day = date.getDate().toString().padStart(2, '0'); // 2-digit day
-                                    let month = date.toLocaleString('en-US', { month: 'short' }); // Short month name
-                                    let year = date.getFullYear();
-                                    return `${hours}:${minutes}, ${day}/${month}/${year}`;
-                                })()"
-                            ></td>
-                            <!-- Last seen announcement -->
-                            <td 
-                                class="py-3 px-3 border-r border-black text-biru-tua font-im-fell-english text-sm sm:text-base"
-                                x-text="(() => {
-                                    if (!caas.lastSeenAnnouncement) {
-                                        return 'Never seen';
-                                    }
-                                    let now = Math.floor(Date.now() / 1000); // Current time in UNIX timestamp
-                                    let past = caas.lastSeenAnnouncement; // UNIX timestamp from your data
-                                    let diff = now - past; // Difference in seconds
-
-                                    // Time intervals in seconds
-                                    let units = [
-                                        { label: 'week', value: 604800 },
-                                        { label: 'day', value: 86400 },
-                                        { label: 'hour', value: 3600 },
-                                        { label: 'minute', value: 60 }
-                                    ];
-
-                                    // Find the most significant time unit
-                                    for (let unit of units) {
-                                        let count = Math.floor(diff / unit.value);
-                                        if (count >= 1) {
-                                            return `${count} ${unit.label}${count > 1 ? 's' : ''} ago`;
-                                        }
-                                    }
-
-                                    return 'Just now'; // Default case
-                                })()"
                             ></td>
                             <!-- Action Buttons -->
                             <td class="py-3 px-3 text-biru-tua font-im-fell-english text-sm sm:text-base">
@@ -792,39 +718,43 @@ function manageCaAs() {
             </table>
         </div>
 
-        <!-- Info 'Showing x to y of z entries' -->
-        <div class="mt-4 text-sm sm:text-base text-biru-tua" x-text="showingText"></div>
-
-        <!-- Navigasi pagination -->
-        <div class="mt-2 flex items-center space-x-2 text-sm sm:text-base text-biru-tua">
-            <!-- Tombol Previous -->
+        <div class="mt-2 flex flex-wrap gap-2 justify-center md:justify-end text-sm sm:text-base text-biru-tua">
+            <!-- Prev -->
             <button 
-                class="px-2 py-1 border rounded disabled:opacity-50"
-                :disabled="currentPage <= 1"
-                @click="prevPage"
+              class="px-3 py-1 border rounded disabled:opacity-50"
+              :disabled="currentPage <= 1"
+              @click="prevPage"
             >
-                Previous
+              Previous
             </button>
-
-            <!-- Angka halaman -->
-            <template x-for="page in totalPages" :key="page">
-                <button 
-                    class="px-2 py-1 border rounded"
+        
+            <!-- Pages with ellipsis -->
+            <template x-for="(page, idx) in displayPages" :key="idx">
+              <span>
+                <template x-if="page === '...'">
+                  <span class="px-3 py-1">...</span>
+                </template>
+                <template x-if="page !== '...'">
+                  <button
+                    class="px-3 py-1 border rounded"
                     :class="currentPage === page ? 'bg-biru-tua text-white' : ''"
                     @click="goToPage(page)"
                     x-text="page"
-                ></button>
+                  ></button>
+                </template>
+              </span>
             </template>
-
-            <!-- Tombol Next -->
+        
+            <!-- Next -->
             <button 
-                class="px-2 py-1 border rounded disabled:opacity-50"
-                :disabled="currentPage >= totalPages"
-                @click="nextPage"
+              class="px-3 py-1 border rounded disabled:opacity-50"
+              :disabled="currentPage >= totalPages"
+              @click="nextPage"
             >
-                Next
+              Next
             </button>
         </div>
+        
     </div>
 
     <!-- -----------------------------

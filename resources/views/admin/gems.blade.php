@@ -418,36 +418,32 @@ function manageGems() {
                             ></td>
                             <!-- Action -->
                             <td class="py-3 px-3 text-biru-tua font-im-fell-english text-sm sm:text-base">
-                                <div class="flex flex-wrap gap-2">
+                                <!-- Diubah jadi vertikal & seragam -->
+                                <div class="flex flex-col gap-2 items-start">
                                     <button 
-                                        class="bg-hijau-tua rounded-[15px] px-3 py-1 
-                                               text-white hover:opacity-90 hover:shadow-md transition"
+                                        class="bg-hijau-tua w-32 py-2 rounded-[15px] text-white text-center text-sm hover:opacity-90 hover:shadow-md transition"
                                         @click="viewGem(gem)"
                                     >
                                         View
                                     </button>
                                     <button 
-                                        class="bg-biru-tua rounded-[15px] px-3 py-1 
-                                               text-white hover:opacity-90 hover:shadow-md transition"
+                                        class="bg-biru-tua w-32 py-2 rounded-[15px] text-white text-center text-sm hover:opacity-90 hover:shadow-md transition"
                                         @click="editGem(gem)"
                                     >
                                         Edit
                                     </button>
                                     <button 
-                                        class="bg-merah-tua rounded-[15px] px-3 py-1 
-                                               text-white hover:opacity-90 hover:shadow-md transition"
+                                        class="bg-merah-tua w-32 py-2 rounded-[15px] text-white text-center text-sm hover:opacity-90 hover:shadow-md transition"
                                         @click="confirmDelete(gem)"
                                     >
                                         Erase
                                     </button>
-                                    <!-- TOMBOL BARU: Detail -->
-                                   <button 
-                                        class="bg-abu-abu2 rounded-[15px] px-3 py-1 
-                                              text-biru-tua hover:opacity-90 hover:shadow-md transition"
-                                                @click="goDetail(gem)"
-                                     >
+                                    <button 
+                                        class="bg-abu-abu2 w-32 py-2 rounded-[15px] text-biru-tua text-center text-sm hover:opacity-90 hover:shadow-md transition"
+                                        @click="goDetail(gem)"
+                                    >
                                         Detail
-                                     </button>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -577,7 +573,7 @@ function manageGems() {
     <!-- MODAL: View Gem -->
     <div 
         x-cloak
-        class="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
+        class="fixed inset-0 flex items-center justify-center pt-10 sm:pt-24 bg-black/50 z-50"
         x-show="isViewOpen"
         x-transition
     >
@@ -618,107 +614,109 @@ function manageGems() {
     </div>
 
     <!-- MODAL: Edit Gem -->
-    <div 
-        x-cloak
-        class="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
-        x-show="isEditOpen"
-        x-transition
+<div 
+x-cloak
+class="fixed inset-0 flex items-start justify-center pt-28 sm:pt-28 bg-black/50 z-50"
+x-show="isEditOpen"
+x-transition
+>
+<!-- Dikurangi agar lebih kecil, + scroll, + margin top -->
+<div class="bg-biru-tua text-white rounded-2xl p-6 sm:p-8 w-[90%] max-w-md max-h-[80vh] overflow-y-auto relative">
+    <button 
+        class="absolute top-3 right-3 text-2xl font-bold"
+        @click="isEditOpen = false; selectedGem = null;"
     >
-        <div class="bg-biru-tua text-white rounded-2xl p-6 sm:p-8 w-[90%] max-w-lg relative">
-            <button 
-                class="absolute top-3 right-3 text-2xl font-bold"
-                @click="isEditOpen = false; selectedGem = null;"
-            >
-                &times;
-            </button>
-            <h2 class="text-3xl sm:text-4xl font-im-fell-english mb-4">
-                Edit Gem
-            </h2>
-            <hr class="border-white/50 mb-6" />
+        &times;
+    </button>
+    <h2 class="text-3xl sm:text-4xl font-im-fell-english mb-4">
+        Edit Gem
+    </h2>
+    <hr class="border-white/50 mb-6" />
 
-            <template x-if="selectedGem">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-biru-tua">
-                    <!-- ID (readonly) -->
-                    <div>
-                        <label class="block text-xl mb-1 text-white">ID</label>
-                        <input 
-                            type="text"
-                            class="w-full bg-custom-gray rounded-2xl p-3"
-                            x-model="selectedGem.id"
-                            readonly
-                        >
-                    </div>
-                    <!-- Name -->
-                    <div>
-                        <label class="block text-xl mb-1 text-white">Name</label>
-                        <input 
-                            type="text"
-                            class="w-full bg-custom-gray rounded-2xl p-3"
-                            x-model="selectedGem.name"
-                        >
-                    </div>
-                    <!-- Quota -->
-                    <div>
-                        <label class="block text-xl mb-1 text-white">Quota</label>
-                        <input 
-                            type="number"
-                            min="0"
-                            class="w-full bg-custom-gray rounded-2xl p-3"
-                            x-model="selectedGem.quota"
-                        >
-                    </div>
-                    <!-- Description -->
-                    <div class="sm:col-span-2">
-                        <label class="block text-xl mb-1 text-white">Description</label>
-                        <textarea 
-                            class="w-full bg-custom-gray rounded-2xl p-3 h-24"
-                            x-model="selectedGem.description"
-                        ></textarea>
-                    </div>
-                    <!-- Current Image -->
-                    <div class="sm:col-span-2">
-                        <p class="text-white text-xl mb-2">Current Image:</p>
-                        <template x-if="selectedGem.image && !editFilePreview">
-                            <img 
-                                :src="selectedGem.image"
-                                alt="Gem Image"
-                                class="h-24 w-24 object-cover rounded-md border mb-2"
-                            />
-                        </template>
-                        <template x-if="editFilePreview">
-                            <img 
-                                :src="editFilePreview"
-                                alt="New Preview"
-                                class="h-24 w-24 object-cover rounded-md border mb-2"
-                            />
-                        </template>
-                        <template x-if="!selectedGem.image && !editFilePreview">
-                            <span class="text-gray-200 italic">No Image</span>
-                        </template>
-                    </div>
-                    <!-- Upload New Image -->
-                    <div class="sm:col-span-2">
-                        <label class="block text-xl mb-1 text-white">Update Image (Optional)</label>
-                        <input 
-                            type="file"
-                            accept="image/*"
-                            class="w-full bg-custom-gray rounded-2xl p-3 text-biru-tua"
-                            @change="handleEditFile($event)"
-                        >
-                    </div>
-                </div>
-            </template>
-
-            <div class="mt-6 flex justify-end">
-                <button 
-                    class="bg-abu-abu-keunguan text-biru-tua px-6 py-2 rounded-2xl hover:opacity-90 transition"
-                    @click="saveEditGem"
+    <template x-if="selectedGem">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-biru-tua">
+            <!-- ID (readonly) -->
+            <div>
+                <label class="block text-xl mb-1 text-white">ID</label>
+                <input 
+                    type="text"
+                    class="w-full bg-custom-gray rounded-2xl p-3"
+                    x-model="selectedGem.id"
+                    readonly
                 >
-                    Update
-                </button>
+            </div>
+            <!-- Name -->
+            <div>
+                <label class="block text-xl mb-1 text-white">Name</label>
+                <input 
+                    type="text"
+                    class="w-full bg-custom-gray rounded-2xl p-3"
+                    x-model="selectedGem.name"
+                >
+            </div>
+            <!-- Quota -->
+            <div>
+                <label class="block text-xl mb-1 text-white">Quota</label>
+                <input 
+                    type="number"
+                    min="0"
+                    class="w-full bg-custom-gray rounded-2xl p-3"
+                    x-model="selectedGem.quota"
+                >
+            </div>
+            <!-- Description -->
+            <div class="sm:col-span-2">
+                <label class="block text-xl mb-1 text-white">Description</label>
+                <textarea 
+                    class="w-full bg-custom-gray rounded-2xl p-3 h-24"
+                    x-model="selectedGem.description"
+                ></textarea>
+            </div>
+            <!-- Current Image -->
+            <div class="sm:col-span-2">
+                <p class="text-white text-xl mb-2">Current Image:</p>
+                <template x-if="selectedGem.image && !editFilePreview">
+                    <img 
+                        :src="selectedGem.image"
+                        alt="Gem Image"
+                        class="h-24 w-24 object-cover rounded-md border mb-2"
+                    />
+                </template>
+                <template x-if="editFilePreview">
+                    <img 
+                        :src="editFilePreview"
+                        alt="New Preview"
+                        class="h-24 w-24 object-cover rounded-md border mb-2"
+                    />
+                </template>
+                <template x-if="!selectedGem.image && !editFilePreview">
+                    <span class="text-gray-200 italic">No Image</span>
+                </template>
+            </div>
+            <!-- Upload New Image -->
+            <div class="sm:col-span-2">
+                <label class="block text-xl mb-1 text-white">Update Image (Optional)</label>
+                <input 
+                    type="file"
+                    accept="image/*"
+                    class="w-full bg-custom-gray rounded-2xl p-3 text-biru-tua"
+                    @change="handleEditFile($event)"
+                >
             </div>
         </div>
+    </template>
+
+    <div class="mt-6 flex justify-end">
+        <button 
+            class="bg-abu-abu-keunguan text-biru-tua px-6 py-2 rounded-2xl hover:opacity-90 transition"
+            @click="saveEditGem"
+        >
+            Update
+        </button>
     </div>
+</div>
+</div>
+
 
     <!-- MODAL: Confirm Delete -->
     <div 

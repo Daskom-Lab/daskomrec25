@@ -46,7 +46,13 @@ class CaasImport implements ToModel, WithHeadingRow
             );
 
             // Find or create role
-            $role = Role::firstOrCreate(['name' => $gems]);
+            if (!empty($gems) && strtolower(trim($gems)) !== 'no gem') {
+                $role = Role::firstOrCreate(['name' => $gems]);
+                $role_id = $role->id;
+            } else {
+                $role_id = null;
+            }
+            
 
             // Find or create stage
             $stage = Stage::firstOrCreate(['name' => $state]);
@@ -60,8 +66,9 @@ class CaasImport implements ToModel, WithHeadingRow
             // Create or update Caas
             return Caas::updateOrCreate(
                 ['user_id' => $user->id],
-                ['role_id' => $role->id]
+                ['role_id' => $role_id]
             );
+            
         } catch (\Exception $e) {
             return null;
         }
