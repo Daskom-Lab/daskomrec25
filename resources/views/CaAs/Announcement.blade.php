@@ -83,34 +83,29 @@
                 - Stage = 'Upgrading' => GEMS
                 - Selain itu => tidak ada tombol
             -->
-            
             <div class="absolute bottom-28 mr-16">
                 @if (strtolower($status) !== 'fail')
-                    @if (in_array($stageName, ['Coding & Writing Test','Interview','Teaching Test']))
-                        <!-- SHIFT BUTTON -->
-                        <a href="{{ route('caas.choose-shift') }}"
-                           class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 list-none">
-                            <img src="assets/Button Pink.webp" alt="ShiftButton" class="w-[150px]">
+                    @php
+                        $buttonConfig = [
+                            'Coding & Writing Test' => ['route' => 'caas.choose-shift', 'text' => 'Shift'],
+                            'Interview' => ['route' => 'caas.choose-shift', 'text' => 'Shift'],
+                            'Teaching Test' => ['route' => 'caas.choose-shift', 'text' => 'Shift'],
+                            'Upgrading' => ['route' => 'caas.choose-gem', 'text' => 'Gems'],
+                        ];
+                        
+                        $config = $buttonConfig[$stageName] ?? null;
+                    @endphp
+                    
+                    @if ($config)
+                    <button onclick="window.location.href='{{ route($config['route']) }}'" class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 list-none">
+                            <img src="assets/Button Pink.webp" alt="{{ $config['text'] }}Button" class="w-[150px]">
                             <p class="absolute inset-0 flex items-center justify-center text-lg font-bold">
-                                Shift
+                                {{ $config['text'] }}
                             </p>
-                        </a>
-                    @elseif ($stageName === 'Upgrading')
-                        <!-- GEMS BUTTON -->
-                        <a href="{{ route('caas.choose-gem') }}"
-                           class="relative text-primary transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-150 active:scale-95 list-none">
-                            <img src="assets/Button Pink.webp" alt="GemButton" class="w-[150px]">
-                            <p class="absolute inset-0 flex items-center justify-center text-lg font-bold">
-                                Gems
-                            </p>
-                        </a>
+                    </button>
                     @endif
                 @endif
             </div>
-            
-            {{-- <div class="absolute bottom-[70px] ml-56">
-                <img src="assets/Sign DLOR.webp" alt="" class="w-[120px]">
-            </div> --}}
         </div>
     </div>
     <x-sidebar></x-sidebar>

@@ -27,6 +27,10 @@ class CaasSessionController extends Controller
     {
         $request->authenticate(); // Akan memanggil rules() + authenticate()
 
+        if ($request->user()->is_admin) { // admin jangan masuk lewat login caas ya
+            $this->destroy($request);
+        }
+
         $request->session()->regenerate();
 
         return redirect()->intended('/home'); // Setelah login -> /home

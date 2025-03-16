@@ -81,25 +81,6 @@
 
     <x-sidebar></x-sidebar>
     <x-home-button></x-home-button>
-    <script>
-        $(".owl-carousel").owlCarousel({
-            center: true,
-            autoWidth:true, 
-            loop: true,
-            margin: 10, 
-            responsive: {
-                0: {
-                    items: 1, // Show 1 item on small screens (e.g., mobile)
-                },
-                768: {
-                    items: 2, // Show 2 items on tablets
-                },
-                1024: {
-                    items: 3, // Show 3 items on larger screens (e.g., desktops)
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>

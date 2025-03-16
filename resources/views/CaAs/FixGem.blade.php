@@ -26,7 +26,7 @@
    <img src="assets/Sparkle.webp" alt="Dust" class="absolute min-w-max right-0 -top-5 transform scale-x-[-1]">
 
     <div class="absolute flex items-center justify-center bg-BlackLayer w-full h-full z-20">
-        <div class="absolute inset-0 text-white text-center mt-24">
+        <div class="absolute inset-0 text-white text-center mt-20">
             <h1 class="text-lg font-crimson-text pb-2">Discover The Light Within</h1>
             <h1 class="text-3xl font-im-fell-english">Your Active Gem</h1>
         </div>
@@ -35,7 +35,7 @@
                 <img 
                   src="{{ $gem->image ?: asset('assets/noimage.webp') }}"
                   alt="Gem Card"
-                  class="relative z-10 w-[310px] rounded"
+                  class="relative z-10 w-[19rem] rounded"
                 >
                 <div class="absolute inset-0 bg-white blur-xl opacity-0 transition-opacity duration-300 group-hover:opacity-30"></div>
             </div>

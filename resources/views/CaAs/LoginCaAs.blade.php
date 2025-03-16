@@ -30,7 +30,7 @@
     </div>
     <!-- Upper Image -->
     <div class="absolute bottom-0 -z-10">
-        <img src="assets/Upper.webp" alt="upper wall" class="w-screen h-auto">
+        <img src="assets/Upper.webp" alt="upper wall" class="w-screen h-screen">
     </div>
     <div class="absolute top-0 -z-10">
         <img src="assets/Upper.webp" alt="upper wall" class="w-screen h-auto scale-y-[-1]">
@@ -39,10 +39,10 @@
     <!-- Greeting Section -->
     <header class="text-center mb-10 px-4">
         <h1 class="text-3xl sm:text-3xl md:text-5xl text-white font-serif mb-4 text-shadow-md">
-            Greeting, Wanderer!
+            Greetings, Wanderer!
         </h1>
         <p class="text-base sm:text-sm md:text-xl text-white font-serif max-w-2xl mx-auto leading-relaxed text-shadow-sm">
-            Your journey begins here. Please enter your login details and password below to continue your adventure.
+            Your journey begins here. Please enter your login details below to continue your adventure.
         </p>
     </header>
     <!-- Login Form Component -->

@@ -25,7 +25,7 @@
           class="text-center text-putih mb-4
                  text-base sm:text-lg md:text-xl"
         >
-            Welcome to the Admin Portal. Please log in with your credentials to access administrative tools and manage the system.
+            Welcome to the Admin Portal. Please log in with your credentials to access administrative tools.
         </p>
 
         <!-- Login Form -->
@@ -99,7 +99,7 @@
           class="text-white text-center sm:mt-12
                  text-2xl sm:text-3xl md:text-2xl"
         >
-            Discover your light within
+            Discover The Light Within
         </p>
     </div>
 </div>

@@ -130,7 +130,7 @@
           class="text-white text-center sm:mt-8
                  text-2xl sm:text-3xl md:text-2xl"
         >
-            Discover your light within
+            Discover The Light Within
         </p>
     </div>
 </div>

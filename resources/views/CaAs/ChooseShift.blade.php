@@ -103,7 +103,7 @@
     <div class="w-full h-full z-30 font-im-fell-english overflow-hidden">
         <div class="inset-0 text-white text-center mt-12">
             <h2 class="font-crimson-text text-lg lg:text-xl md:text-xl pb-1 font-bold">Discover The Light Within</h2>
-            <h1 class="text-2xl md:text-3xl lg:text-3xl">Choose Your Shift For {{ $stageName }}</h1>
+            <h1 class="text-2xl md:text-3xl lg:text-3xl mx-5">Choose Your Shift For {{ $stageName }}</h1>
         </div>
         <!-- Tabel Shift -->
         <div x-data="manageShift()"

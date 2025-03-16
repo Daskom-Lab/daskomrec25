@@ -24,6 +24,10 @@ class AdminSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
+
+        if (!$request->user()->is_admin) { // caas jangan masuk lewat login admin ya
+            $this->destroy($request);
+        }
         
         $request->session()->regenerate();
 

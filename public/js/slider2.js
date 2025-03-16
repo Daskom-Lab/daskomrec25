@@ -15,6 +15,7 @@ $(document).ready(function () {
         },
         loop: false,
         center: true,
+        autoWidth: false,
         responsiveClass: true,
         onTranslated: function (event) {
             var currentItem = event.item.index;

@@ -44,10 +44,10 @@
             <img
               src="{{ $gem->image ?: asset('assets/noimage.webp') }}"
               alt="Gem Card"
-              class="max-w-[250px] rounded gem-image"
+              class="max-w-[230px] rounded gem-image"
             >
 
-            <div class="absolute inset-0 mx-auto max-w-[250px] bg-black bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-20">
+            <div class="absolute inset-0 mx-auto max-w-[230px] bg-black bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-20">
               <!-- DESCRIPTION BUAT GEMMM -->
               <p class="p-5 text-white text-justify text-sm relative z-10">{{ $gem->description }}</p>
             </div>

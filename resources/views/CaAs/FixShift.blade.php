@@ -23,22 +23,32 @@
     <img src="assets/Crystal 5.webp" alt="Crystal" class="fixed bottom-0 -right-14 h-60 w-auto opacity-0 lg:opacity-100 md:opacity-100">
     <img src="assets/Shine.webp" alt="Shine" class="fixed bottom-10 right-5 w-[200px] opacity-0 lg:opacity-100 md:opacity-100">
     
+    @php
+        use Illuminate\Support\Facades\Auth;
+        $user = Auth::user();
+        $stageName = match($user->caasStage->stage->name) {
+            'Teaching Test' => 'Teaching Test',
+            'Coding & Writing Test' => 'Coding & Writing Test',
+            default => 'Interview'
+        };
+    @endphp
     <div class="absolute bg-BlackLayer w-full h-full z-20">
         <div class="container mx-auto py-5 font-crimson-text">
             <div class="inset-0 text-white text-center">
                 <h2 class="font-crimson-text text-md lg:text-lg md:text-lg pb-1 font-bold">Discover The Light Within</h2>
-                <h1 class="text-xl md:text-2xl lg:text-2xl">Your Shift For Interview</h1>
+                <h1 class="text-xl md:text-2xl lg:text-2xl mx-5">Your Shift For {{ $stageName }}</h1>
             </div>
             <div class="flex relative justify-center -top-10">
                 <img src="assets/Announcement Stone.webp" alt="" class="h-[700px]">
                 <div class="absolute text-justify mt-32 w-[230px] lg:w-[250px]">
                 @if ($shift)
-                    <p class="lg:text-lg text-base font-bold mb-5">Once you choose a shift, it cannot be changed. Your assigned shift will be displayed below.</p>
+                    <p class="lg:text-lg text-base mb-5 font-im-fell-english">Once you choose a shift, it cannot be changed. Your assigned shift will be displayed below.</p>
 
-                    <p class="ml-3 text-md font-im-fell-english">Date: {{ Carbon\Carbon::parse($shift->date)->format('l, jS F Y') }}</p>
-                    <p class="ml-3 text-md font-im-fell-english">Time: {{ substr($shift->time_start, 0, 5) . '-' . substr($shift->time_end, 0, 5) . ' WIB' }}</p>
+                    <p class="ml-3 text-lg font-crimson-text font-bold">Date: {{ Carbon\Carbon::parse($shift->date)->format('l, j F Y') }}</p>
+                    <p class="ml-3 text-lg font-crimson-text font-bold">Time: {{ substr($shift->time_start, 0, 5) . '-' . substr($shift->time_end, 0, 5) . ' WIB' }}</p>
 
-                    <p class="lg:text-lg text-base font-bold mt-5">Please make sure to remember your assigned shift and stay updated via our OA Line for any upcoming information. Thank you!</p>
+                    <p class="lg:text-lg text-base mt-5 font-im-fell-english">Please make sure to remember your assigned shift and stay updated via our OA Line for any upcoming information.</p>
+                    <p class="lg:text-lg text-base mt-5 font-im-fell-english"> Thank you!</p>
                     @else
                         <p class="lg:text-lg text-base font-bold mb-5">
                             You haven't picked any shift yet.
