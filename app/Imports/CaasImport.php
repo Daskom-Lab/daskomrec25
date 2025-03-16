@@ -36,7 +36,7 @@ class CaasImport implements ToModel, WithHeadingRow
             // Find or create user
             $user = User::firstOrCreate(
                 ['nim' => $nim],
-                ['password' => bcrypt($nim)]
+                ['password' => bcrypt($nim . '2025')]
             );
 
             // Create or update profile
