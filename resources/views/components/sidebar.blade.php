@@ -28,8 +28,9 @@
             $user = Auth::user();
         @endphp
 
-        <!-- Recruitment Section -->
-        @if ($config && ($config->pengumuman_on || $config->isi_jadwal_on || $config->role_on))
+        <!-- Recruitment Section -->        
+        @if ($config && $config->pengumuman_on || 
+            ($config && ($config->isi_jadwal_on || $config->role_on) && $user->caasStage->status !== "Fail"))
             <h1 class="text-white text-center text-2xl mt-4 mb-2 font-im-fell-english font-semibold">Recruitment</h1>
         @endif
 

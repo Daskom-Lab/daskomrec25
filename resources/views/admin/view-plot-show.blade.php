@@ -126,8 +126,6 @@
                             {{ !in_array(strtolower($caas->user->caasStage->status ?? ''), ['pass', 'fail']) ? 'text-biru-tua' : '' }}">
                             {{ $caas->user->caasStage->status ?? 'Unknown' }}
                         </td>
-                            {{ $caas->user->caasStage->status ?? 'Unknown' }}
-                        </td>
                         <!-- State -->
                         <td class="py-3 px-3 text-biru-tua text-center">
                             {{ $caas->user->caasStage->stage->name ?? '-' }}
