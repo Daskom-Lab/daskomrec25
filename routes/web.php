@@ -59,6 +59,16 @@ Route::view('/admin', 'secret');
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::view('home', 'admin.home')->name('home');
 
+    Route::get('/plots', function () {
+        return response()->json(
+            App\Models\Shift::orderBy('date', 'asc')
+                ->orderBy('time_start', 'asc')
+                ->withCount('plottingans')
+                ->with(['plottingans.caas.user.profile'])
+                ->get()
+        );
+    });
+
     // Reset Shift & Plot
     Route::post('/shift/reset-shifts', [ShiftController::class, 'resetShifts'])->name('shift.resetShifts');
     Route::post('/shift/reset-plot', [ShiftController::class, 'resetPlot'])->name('shift.resetPlot');

@@ -48,8 +48,8 @@ class PlottinganController extends Controller
         // Ambil daftar SHIFT (bisa pakai filter SHIFT yg masih ada sisa kuota > 0)
         $shifts = Shift::orderBy('date', 'asc')
             ->orderBy('time_start', 'asc')
+            ->withCount('plottingans')
             ->get();
-        $shifts = Shift::withCount('plottingans')->get();
 
         // Return ke blade "CaAs.ChooseShift"
         return view('CaAs.ChooseShift', compact('shifts'));
