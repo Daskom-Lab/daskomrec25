@@ -163,9 +163,11 @@ class PlottinganController extends Controller
         $totalShifts = $shifts->count();
         $takenShifts = $shifts->sum('plottingans_count');
 
-        $totalCaas    = Caas::count();
-        $havenTPicked = $totalCaas - $takenShifts;
-        // definisi "haven't picked" menyesuaikan aturan
+        $pickedCaasIds = Plottingan::pluck('caas_id')->toArray();
+        $havenTPicked = \App\Models\Caas::whereNotIn('id', $pickedCaasIds)
+            ->whereHas('user.caasStage', function ($query) {
+                $query->whereIn('status', ['Pass']);
+            })->count();
 
         return view('admin.view-plot', compact('shifts', 'totalShifts', 'takenShifts', 'havenTPicked'));
     }
@@ -191,13 +193,107 @@ class PlottinganController extends Controller
         $shiftsC = Shift::withCount('plottingans')->get();
         $totalShifts = $shiftsC->count();
         $takenShifts = $shiftsC->sum('plottingans_count');
-        $totalCaas    = Caas::count();
-        $havenTPicked = $totalCaas - $takenShifts;
+        $pickedCaasIds = Plottingan::pluck('caas_id')->toArray();
+        $havenTPicked = \App\Models\Caas::whereNotIn('id', $pickedCaasIds)
+            ->whereHas('user.caasStage', function ($query) {
+                $query->whereIn('status', ['Pass']);
+            })->count();
 
         $shifts = Shift::with(['plottingans.caas.user.profile'])->get();
 
         $pdf = Pdf::loadView('admin.plots-pdf', compact('shifts', 'totalShifts', 'takenShifts', 'havenTPicked'));
 
         return $pdf->download('shifts_report.pdf');
+    }
+
+    public function destroy($id)
+    {
+        $plottingan = \App\Models\Plottingan::findOrFail($id);
+        $plottingan->delete();
+
+        return redirect()->back()->with('success', 'Jadwal CAAS berhasil dihapus.');
+    }
+
+    public function havenPicked()
+    {
+        // Ambil semua caas_id yang sudah memilih shift
+        $pickedCaasIds = \App\Models\Plottingan::pluck('caas_id')->toArray();
+
+        // Ambil data CAAS yang belum ada di plottingans dan dengan status Pass ( jadi fail dan unknown gak bakalan masuk)
+        $caasNotPicked = \App\Models\Caas::with(['user.profile', 'user.caasStage.stage'])
+            ->whereNotIn('id', $pickedCaasIds)
+            ->whereHas('user.caasStage', function ($query) {
+                $query->whereIn('status', ['Pass']);
+            })
+            ->get();
+
+        // Ambil current stage dari konfigurasi (misalnya dari record id=1)
+        $configuration = \App\Models\Configuration::find(1);
+        $currentStage = $configuration
+            ? \App\Models\Stage::find($configuration->current_stage_id)->name
+            : 'Unknown';
+        return view('admin.haven-picked', compact('caasNotPicked', 'currentStage'));
+    }
+
+    public function assignSchedule($caasId)
+    {
+        // Ambil CAAS berdasarkan ID dan load relasi yang diperlukan
+        $caas = \App\Models\Caas::with(['user.profile', 'user.caasStage'])->findOrFail($caasId);
+
+        // Pastikan CAAS belum memiliki jadwal (sesuai logika aplikasi)
+        $existingPlot = \App\Models\Plottingan::where('caas_id', $caas->id)->first();
+        if ($existingPlot) {
+            return redirect()->back()->with('error', 'CAAS sudah memiliki jadwal.');
+        }
+
+        // Ambil daftar shift yang tersedia (misalnya shift dengan sisa kuota > 0)
+        $shifts = \App\Models\Shift::withCount('plottingans')
+            ->orderBy('date', 'asc')
+            ->orderBy('time_start', 'asc')
+            ->get()
+            ->filter(function ($shift) {
+                return $shift->plottingans_count < $shift->kuota;
+            });
+
+        // Return ke view baru (misalnya admin.assign-schedule)
+        return view('admin.assign-schedule', compact('caas', 'shifts'));
+    }
+
+    public function storeAssignedSchedule(Request $request)
+    {
+        $validated = $request->validate([
+            'caas_id'  => 'required|exists:caas,id',
+            'shift_id' => 'required|exists:shifts,id',
+        ]);
+
+        // Pastikan CAAS belum memiliki jadwal
+        if (\App\Models\Plottingan::where('caas_id', $validated['caas_id'])->exists()) {
+            return redirect()->back()->with('error', 'CAAS sudah memiliki jadwal.');
+        }
+
+        try {
+            DB::transaction(function () use ($validated) {
+                // Lock shift untuk menghindari race condition
+                $shift = \App\Models\Shift::where('id', $validated['shift_id'])
+                    ->lockForUpdate()
+                    ->firstOrFail();
+
+                // Cek kuota shift
+                $pickedCount = \App\Models\Plottingan::where('shift_id', $shift->id)->count();
+                if ($pickedCount >= $shift->kuota) {
+                    throw new \Exception('Shift penuh, kuota sudah habis.');
+                }
+
+                // Simpan plottingan
+                \App\Models\Plottingan::create([
+                    'caas_id'  => $validated['caas_id'],
+                    'shift_id' => $shift->id,
+                ]);
+            });
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+        return redirect()->route('admin.view-plot')->with('success', 'Jadwal berhasil ditambahkan untuk CAAS.');
     }
 }

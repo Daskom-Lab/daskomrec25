@@ -57,12 +57,16 @@
         <!-- Card: Haven't Picked -->
         <div class="bg-biru-tua rounded-[30px] p-6 flex flex-col items-center shadow-md">
             <p class="text-white text-xl sm:text-2xl md:text-3xl font-im-fell-english mb-2">
-                Haven't Picked
+                <a href="{{ route('admin.plot.havenpicked') }}" class="hover:underline">
+                    Haven't Picked
+                </a>
             </p>
             <p class="text-white text-5xl sm:text-6xl md:text-7xl font-im-fell-english leading-tight">
-                {{ $havenTPicked }}
+                <a href="{{ route('admin.plot.havenpicked') }}" class="hover:underline">
+                    {{ $havenTPicked }}
+                </a>
             </p>
-        </div>
+        </div>        
     </div>
 
     <!-- TABEL PLOT SHIFT -->

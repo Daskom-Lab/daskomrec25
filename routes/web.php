@@ -30,17 +30,17 @@ Route::middleware(['auth', 'caas'])->group(function () {
 
     // Form ganti password
     Route::view('change-password', 'CaAs.ChangePassword')->name('caas.change-password');
-    
+
     // Proses ganti password
     Route::post('change-password', [CaasSessionController::class, 'updatePassword'])
-         ->name('caas.change-password.update');
+        ->name('caas.change-password.update');
 
     // Profile CAAS
     Route::view('profile', 'CaAs.ProfileCaAs')->name('caas.profile');
 
     // Pengumuman
     Route::view('announcement', 'CaAs.Announcement')->name('caas.announcement');
-    
+
     // Kontak asisten 
     Route::view('assistants', 'CaAs.AssistansPage')->name('caas.assistants');
 
@@ -76,6 +76,18 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // View Plot
     Route::get('/view-plot', [PlottinganController::class, 'viewPlot'])->name('view-plot');
     Route::get('/view-plot/{id}', [PlottinganController::class, 'show'])->name('view-plot.show');
+    Route::delete('/plottingans/{id}', [App\Http\Controllers\PlottinganController::class, 'destroy'])
+        ->name('plottingan.delete');
+    Route::get('/plot/havenpicked', [App\Http\Controllers\PlottinganController::class, 'havenPicked'])
+        ->name('plot.havenpicked');
+
+    // Route untuk menampilkan halaman assign schedule untuk CAAS tertentu
+    Route::get('/plot/assign-schedule/{caas}', [\App\Http\Controllers\PlottinganController::class, 'assignSchedule'])
+        ->name('plot.assign-schedule');
+
+    // Route untuk menyimpan jadwal yang dipilih
+    Route::post('/plot/assign-schedule', [\App\Http\Controllers\PlottinganController::class, 'storeAssignedSchedule'])
+        ->name('plot.assign-schedule.store');
 
     Route::post('/shift/import', [ShiftController::class, 'importShift'])->name('shift.import');
     Route::get('/shift/export-pdf', [ShiftController::class, 'exportPdf'])->name('shift.export.pdf');
