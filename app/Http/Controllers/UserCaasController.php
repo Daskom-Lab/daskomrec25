@@ -9,6 +9,7 @@ use App\Models\Caas;
 use App\Models\Role;
 use App\Models\Stage;
 use App\Models\User;
+use App\Models\Configuration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -171,7 +172,7 @@ class UserCaasController extends Controller
         if (isset($validated['gems']) && strtolower($validated['gems']) === 'no gem') {
             $caas->role_id = null;
             $caas->save();
-        } 
+        }
         // Jika admin memasukkan nama gem, kita cari/buat role di DB
         elseif (!empty($validated['gems'])) {
             $role = Role::firstOrCreate(['name' => $validated['gems']]);
@@ -231,6 +232,14 @@ class UserCaasController extends Controller
 
         // Cek apakah user sudah punya record Caas
         $caas = Caas::where('user_id', $user->id)->first();
+
+
+        $config = Configuration::find(1);
+        // Block jika fitur Choose Gems OFF
+        if (! $config->role_on) {
+            return redirect()->route('caas.home')
+                ->with('error', 'Pemilihan gems belum dibuka oleh admin.');
+        }
 
         // Jika user sudah memilih gem, langsung redirect ke fixGemView
         if ($caas && $caas->role_id) {
