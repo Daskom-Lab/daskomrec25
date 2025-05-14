@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Caas;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Configuration;
 use App\Exports\ShiftsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -30,6 +31,23 @@ class PlottinganController extends Controller
         $caas = Caas::where('user_id', $user->id)->first();
         if (!$caas) {
             return redirect('/login')->with('error', 'Something is wrong with your CAAS data');
+        }
+
+        // 1) Ambil konfigurasi dashboard
+        $config = Configuration::find(1);
+
+        // 2) Block jika fitur Choose Shift OFF
+        if (! $config->isi_jadwal_on) {
+            return redirect()->route('caas.home')
+                ->with('error', 'Pemilihan shift belum dibuka oleh admin.');
+        }
+
+        // 3) Block jika state CAAS tidak sama dengan current_stage
+        $userStageId    = $user->caasStage->stage_id ?? null;
+        $currentStageId = $config->current_stage_id;
+        if ($userStageId !== $currentStageId) {
+            return redirect()->route('caas.home')
+                ->with('error', 'Saat ini bukan giliran Anda memilih shift.');
         }
 
         // If user is fail, just redirect them

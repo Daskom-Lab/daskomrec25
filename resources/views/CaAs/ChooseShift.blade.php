@@ -130,7 +130,7 @@
                         <tr class="h-10 lg:h-12 md:h-12">
                             <th class="border-[1px] border-black">No.</th>
                             <th class="border-[1px] border-black">Date</th>
-                            <th class="border-[1px] border-black">Shift No.</th>
+                            <th class="border-[1px] border-black">Shift</th>
                             <th class="border-[1px] border-black">Time</th>
                             <th class="border-[1px] border-black">Quota</th>
                             <th class="border-[1px] border-black">Action</th>

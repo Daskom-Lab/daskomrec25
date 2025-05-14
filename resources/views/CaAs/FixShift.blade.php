@@ -46,6 +46,7 @@
 
                     <p class="ml-3 text-lg font-crimson-text font-bold">Date: {{ Carbon\Carbon::parse($shift->date)->format('l, j F Y') }}</p>
                     <p class="ml-3 text-lg font-crimson-text font-bold">Time: {{ substr($shift->time_start, 0, 5) . '-' . substr($shift->time_end, 0, 5) . ' WIB' }}</p>
+                    <p class="ml-3 text-lg font-crimson-text font-bold">Shift: {{ $shift->shift_no }}</p>
 
                     <p class="lg:text-lg text-base mt-5 font-im-fell-english">Please make sure to remember your assigned shift and stay updated via our OA Line for any upcoming information.</p>
                     <p class="lg:text-lg text-base mt-5 font-im-fell-english"> Thank you!</p>
